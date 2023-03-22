@@ -1,25 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   threads.c                                          :+:      :+:    :+:   */
+/*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/21 18:43:43 by victofer          #+#    #+#             */
-/*   Updated: 2023/03/22 12:18:38 by victofer         ###   ########.fr       */
+/*   Created: 2023/03/22 10:19:06 by victofer          #+#    #+#             */
+/*   Updated: 2023/03/22 12:18:04 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include <stdio.h>
+#include <unistd.h>
+#include <limits.h>
+#include <stdlib.h>
+#include <sys/time.h>
+#include <pthread.h>
 
-int		nb = 0;
+int				nb = 0;
+
+typedef struct s_mutex
+{
+	pthread_mutex_t	mutex;
+}					t_mutex;
+
+long int	get_timestamp_ms(void);
 
 void	*routine(void *arg)
 {
 	int		i;
-	t_vars	*mutex;
+	t_mutex	*mutex;
 
-	mutex = (t_vars *)arg;
+	mutex = (t_mutex *)arg;
 	i = 0;
 	(void)arg;
 	pthread_mutex_lock(&mutex->mutex);
@@ -29,30 +41,29 @@ void	*routine(void *arg)
 	return (0);
 }
 
-int	create_philo(t_vars *vars)
+int	main(void)
 {
-	pthread_t	*p;
-	int			i;
+	pthread_t		p[5];
+	t_mutex			*mutex;
+	int				i;
 
-	p = (pthread_t *)malloc (vars->nb_philo * sizeof(pthread_t));
-	if (!p)
-		return (0);
 	i = 0;
-	pthread_mutex_init(&vars->mutex, NULL);
-	while (i < vars->nb_philo)
+	mutex = malloc(sizeof(t_mutex));
+	pthread_mutex_init(&mutex->mutex, NULL);
+	while (i < 4)
 	{
-		if (pthread_create(&p[i], NULL, &routine, &vars->mutex) != 0)
+		if (pthread_create(&p[i], NULL, &routine, &mutex->mutex) != 0)
 			return (1);
-		printf("thread %i created wiii\n", i);
+		printf("thread %i has started\n", i);
 		i++;
 	}
 	i = 0;
-	while (i < vars->nb_philo)
+	while (i < 4)
 	{
 		pthread_join(p[i], NULL);
 		i++;
 	}
-	pthread_mutex_destroy(&vars->mutex);
-	printf("%i\n", nb);
+	pthread_mutex_destroy(&mutex->mutex);
+	printf("nb -> %i", nb);
 	return (0);
 }
