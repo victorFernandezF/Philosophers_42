@@ -6,44 +6,61 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 18:43:43 by victofer          #+#    #+#             */
-/*   Updated: 2023/03/22 12:18:38 by victofer         ###   ########.fr       */
+/*   Updated: 2023/03/23 11:05:53 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int		nb = 0;
 
-void	*routine(void *arg)
+//pthread_mutex_t	mutex ;
+
+void	*routine(void *args)
 {
-	int		i;
-	t_vars	*mutex;
+	t_vars	*tdata;
+	int		res;
 
-	mutex = (t_vars *)arg;
+	tdata = (t_vars *)args;
+	res = tdata->time_to_die + 1;
+	tdata->time_to_die = res;
+	return (NULL);
+	//pthread_exit(NULL);
+}
+	
+/* 	int				i;
+	t_vars			*vars;
+
 	i = 0;
-	(void)arg;
-	pthread_mutex_lock(&mutex->mutex);
+	vars = (t_vars *)args;
+	vars->time_to_die = 27;
+	pthread_mutex_lock(&vars->mutex);
 	while (i++ < 1000000)
 		nb++;
-	pthread_mutex_unlock(&mutex->mutex);
-	return (0);
-}
+	pthread_mutex_unlock(&vars->mutex);
+	return (NULL); */
+
 
 int	create_philo(t_vars *vars)
 {
-	pthread_t	*p;
-	int			i;
+	pthread_t		p;
+	//int				i;
+	
+	pthread_create(&p, NULL, routine, (void *)&vars);
+	pthread_join(p, NULL);
+	printf("%d\n", vars->time_to_die);
 
-	p = (pthread_t *)malloc (vars->nb_philo * sizeof(pthread_t));
+	/* p = (pthread_t *)malloc (vars->nb_philo * sizeof(pthread_t));
 	if (!p)
 		return (0);
 	i = 0;
 	pthread_mutex_init(&vars->mutex, NULL);
+	printf("before -> %i\n", vars->time_to_die);
 	while (i < vars->nb_philo)
 	{
-		if (pthread_create(&p[i], NULL, &routine, &vars->mutex) != 0)
+		if (pthread_create(&p[i], NULL, &routine, (void *)&vars) != 0)
 			return (1);
-		printf("thread %i created wiii\n", i);
+		//printf("thread %i has started\n", i);
+			printf("After -> %i\n", vars->time_to_die);
 		i++;
 	}
 	i = 0;
@@ -53,6 +70,6 @@ int	create_philo(t_vars *vars)
 		i++;
 	}
 	pthread_mutex_destroy(&vars->mutex);
-	printf("%i\n", nb);
-	return (0);
+	printf("nb -> %i\n", nb);*/
+	return (0); 
 }
