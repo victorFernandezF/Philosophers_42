@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 18:20:43 by victofer          #+#    #+#             */
-/*   Updated: 2023/03/28 11:22:07 by victofer         ###   ########.fr       */
+/*   Updated: 2023/03/28 11:26:23 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ int	main(int argc, char **argv)
 	if (args_checker(argc, argv) == -1)
 		return (-1);
 	table = init_table(table, argc, argv);
-	printf("%i", table->nb_philo);
 	//create_philo(vars);
 	free_structs(table);
 	atexit(leaks);

@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 18:48:21 by victofer          #+#    #+#             */
-/*   Updated: 2023/03/28 11:23:27 by victofer         ###   ########.fr       */
+/*   Updated: 2023/03/28 11:38:57 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 
 long long	ft_atoi(const char *str);
 t_table		*init_table(t_table *table, int argc, char **argv);
+t_philo		**init_philos(t_table *table);
 long int	get_timestamp_ms(void);
 //int			create_philo(t_vars *vars);
 void		*routine(void *args);
