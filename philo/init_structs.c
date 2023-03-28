@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 18:39:40 by victofer          #+#    #+#             */
-/*   Updated: 2023/03/28 12:43:48 by victofer         ###   ########.fr       */
+/*   Updated: 2023/03/28 18:44:45 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,15 +47,15 @@ t_philo	**init_philos(t_table *table)
 
 	philos = malloc(sizeof(t_philo) * table->nb_philo);
 	if (!philos)
-		return (print_error_message("ERROR: Failed creating philos"), NULL);
+		return (print_error_message(MALLOC_ERROR), NULL);
 	i = 0;
 	while (i < table->nb_philo)
 	{
-		philos[i] = malloc(sizeof(t_philo) *1);
+		philos[i] = malloc(sizeof(t_philo) * 1);
 		if (!philos[i])
-			return (print_error_message("ERROR: Failed creating philos"), NULL);
+			return (print_error_message(MALLOC_ERROR), NULL);
 		if (pthread_mutex_init(&philos[i]->meal_lock, NULL) != 0)
-			return (print_error_message("ERROR: Failed creating mutex"), NULL);
+			return (print_error_message(MALLOC_ERROR), NULL);
 		philos[i]->id = i;
 		philos[i]->table = table;
 		philos[i]->times_ate = 0;
@@ -77,7 +77,7 @@ t_table	*init_table(t_table *table, int argc, char **argv)
 {
 	table = malloc(sizeof(t_table));
 	if (!table)
-		return (print_error_message("ERROR: Failed creating struct"), NULL);
+		return (print_error_message(MALLOC_ERROR), NULL);
 	table->nb_philo = ft_atoi(argv[1]);
 	table->time_to_die = ft_atoi(argv[1]);
 	table->time_to_eat = ft_atoi(argv[2]);
@@ -89,6 +89,6 @@ t_table	*init_table(t_table *table, int argc, char **argv)
 		table->times_x_eat = ft_atoi(argv[5]);
 	table->philos = init_philos(table);
 	if (!table->philos)
-		return (print_error_message("ERROR: Failed creating philos"), NULL);
+		return (print_error_message(MALLOC_ERROR), NULL);
 	return (table);
 }

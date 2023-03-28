@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 11:39:58 by victofer          #+#    #+#             */
-/*   Updated: 2023/03/28 10:45:27 by victofer         ###   ########.fr       */
+/*   Updated: 2023/03/28 18:41:56 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	args_checker(int cant, char **args)
 		{
 			if (!is_digit(args[i][j]))
 			{
-				print_error_message("ERROR: Bad argument format\n");
+				print_error_message(ARGS_FORMAT_ERROR);
 				return (-1);
 			}
 		j++;
@@ -65,7 +65,7 @@ int	number_args_checker(int cant)
 {
 	if (cant != 5 && cant != 4)
 	{
-		print_error_message("ERROR: Incorrect number of arguments\n");
+		print_error_message(NUM_ARGS_ERROR);
 		return (-1);
 	}
 	return (0);
