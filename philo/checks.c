@@ -6,12 +6,17 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 11:39:58 by victofer          #+#    #+#             */
-/*   Updated: 2023/03/21 18:26:29 by victofer         ###   ########.fr       */
+/*   Updated: 2023/03/28 10:45:27 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
+/* 
+ * is_digit
+ * ----------------------------
+ *	Returns 1 if char is a digit and 0 of not.
+ */
 static int	is_digit(char c)
 {
 	return (c >= '0' && c <= '9');
@@ -21,7 +26,7 @@ static int	is_digit(char c)
  * args_checker
  * ----------------------------
  *	Checks if all given arguments are digits.
- *	If not, print an error and exit program.	
+ *	If not, print an error and returns -1.
  * 
  *	cant: number of arguments.
  *	args: array with the arguments.
@@ -44,6 +49,24 @@ int	args_checker(int cant, char **args)
 			}
 		j++;
 		}
+	}
+	return (0);
+}
+
+/* 
+ * num_args_checker
+ * ----------------------------
+ *	Checks if the number of given arguments is correct.
+ *	If not, print an error and returns -1.	
+ * 
+ *	cant: number of arguments.
+ */
+int	number_args_checker(int cant)
+{
+	if (cant != 5 && cant != 4)
+	{
+		print_error_message("ERROR: Incorrect number of arguments\n");
+		return (-1);
 	}
 	return (0);
 }
