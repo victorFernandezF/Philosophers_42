@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 18:49:04 by victofer          #+#    #+#             */
-/*   Updated: 2023/03/28 10:26:04 by victofer         ###   ########.fr       */
+/*   Updated: 2023/03/28 10:37:54 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,7 @@
 
 //   S T R U C T U R E S
 
-typedef struct s_philo
-{
-	pthread_t		thread;
-	int				id;
-	int				times_ate;
-	int				*forks;
-	pthread_mutex_t	meal_lock;
-	time_t			last_meal;
-	t_table			table;
-}	t_philo;
+typedef struct s_philo	t_philo;
 
 typedef struct s_table
 {
@@ -44,6 +35,17 @@ typedef struct s_table
 	pthread_mutex_t	**fork_locks;
 	t_philo			**philos;
 }	t_table;
+
+typedef struct s_philo
+{
+	pthread_t		thread;
+	int				id;
+	int				times_ate;
+	int				*forks;
+	pthread_mutex_t	meal_lock;
+	time_t			last_meal;
+	t_table			*table;
+}	t_philo;
 
 typedef enum e_status
 {
