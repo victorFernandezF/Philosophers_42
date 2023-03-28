@@ -6,16 +6,16 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 18:39:40 by victofer          #+#    #+#             */
-/*   Updated: 2023/03/28 12:07:08 by victofer         ###   ########.fr       */
+/*   Updated: 2023/03/28 12:14:20 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
 /* 
- * init_philo_vars
+ * init_philos
  * ----------------------------
- *  Initialize the struct with the given args.
+ *  Initialize the philo struct.
  * 
  *	tabe: struct with general datas.
  */
@@ -46,7 +46,7 @@ t_philo	**init_philos(t_table *table)
 }
 
 /* 
- * init_philo_vars
+ * init_table
  * ----------------------------
  *  Initialize the struct with the given args.
  * 
