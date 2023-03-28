@@ -6,15 +6,15 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 18:49:04 by victofer          #+#    #+#             */
-/*   Updated: 2023/03/28 10:37:54 by victofer         ###   ########.fr       */
+/*   Updated: 2023/03/28 11:12:39 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCTS_H
 # define STRUCTS_H
 
-# define TRUE = 1;
-# define FALSE = 0;
+# define TRUE 1;
+# define FALSE 0;
 # include <pthread.h>
 
 //   S T R U C T U R E S
