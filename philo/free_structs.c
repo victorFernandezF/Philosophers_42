@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 18:12:31 by victofer          #+#    #+#             */
-/*   Updated: 2023/03/28 11:21:05 by victofer         ###   ########.fr       */
+/*   Updated: 2023/03/28 11:41:00 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ void	free_structs(t_table *table)
 		i = 0;
 		while (i < table->nb_philo)
 		{
+			if (table->philos[i]->forks != NULL)
+				free(table->philos[i]->forks);
 			if (table->philos[i] != NULL)
 				free(table->philos[i]);
 			i++;
