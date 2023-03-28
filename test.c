@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 10:19:06 by victofer          #+#    #+#             */
-/*   Updated: 2023/03/28 09:26:41 by victofer         ###   ########.fr       */
+/*   Updated: 2023/03/28 12:24:22 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ int	main(void)
 	t_mutex			*mutex;
 	int				i;
 
+	printf("%i\n", 3 % 4);
 	i = 0;
 	mutex = malloc(sizeof(t_mutex));
 	pthread_mutex_init(&mutex->mutex, NULL);
