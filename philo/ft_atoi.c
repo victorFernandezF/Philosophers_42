@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 19:03:50 by victofer          #+#    #+#             */
-/*   Updated: 2023/03/20 18:55:50 by victofer         ###   ########.fr       */
+/*   Updated: 2023/03/28 12:10:57 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,13 @@ static int	ft_is_nbr(char n)
 	return (0);
 }
 
+/* 
+ * ft_atoi
+ * ----------------------------
+ *  Converts a string in an ineger.
+ * 
+ *	str: string with the digits to convert.	
+ */
 long long	ft_atoi(const char *str)
 {
 	long long	result;

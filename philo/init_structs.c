@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 18:39:40 by victofer          #+#    #+#             */
-/*   Updated: 2023/03/28 11:38:50 by victofer         ###   ########.fr       */
+/*   Updated: 2023/03/28 12:07:08 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 /* 
  * init_philo_vars
  * ----------------------------
- *  Initialize the struct with the given args.	
+ *  Initialize the struct with the given args.
+ * 
+ *	tabe: struct with general datas.
  */
 t_philo	**init_philos(t_table *table)
 {
@@ -46,7 +48,9 @@ t_philo	**init_philos(t_table *table)
 /* 
  * init_philo_vars
  * ----------------------------
- *  Initialize the struct with the given args.	
+ *  Initialize the struct with the given args.
+ * 
+ * tabe: struct with general datas.
  */
 t_table	*init_table(t_table *table, int argc, char **argv)
 {

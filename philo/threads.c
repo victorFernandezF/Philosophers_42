@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 18:43:43 by victofer          #+#    #+#             */
-/*   Updated: 2023/03/23 11:05:53 by victofer         ###   ########.fr       */
+/*   Updated: 2023/03/28 12:11:53 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 
 //pthread_mutex_t	mutex ;
-
+/* 
 void	*routine(void *args)
 {
 	t_vars	*tdata;
@@ -37,7 +37,7 @@ void	*routine(void *args)
 	while (i++ < 1000000)
 		nb++;
 	pthread_mutex_unlock(&vars->mutex);
-	return (NULL); */
+	return (NULL);
 
 
 int	create_philo(t_vars *vars)
@@ -70,6 +70,7 @@ int	create_philo(t_vars *vars)
 		i++;
 	}
 	pthread_mutex_destroy(&vars->mutex);
-	printf("nb -> %i\n", nb);*/
+	printf("nb -> %i\n", nb);
 	return (0); 
 }
+ */
