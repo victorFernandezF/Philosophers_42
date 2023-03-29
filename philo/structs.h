@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 18:49:04 by victofer          #+#    #+#             */
-/*   Updated: 2023/03/29 10:18:25 by victofer         ###   ########.fr       */
+/*   Updated: 2023/03/29 12:01:09 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@
 # define TRUE 1
 # define FALSE 0
 # define NUM_ARGS_ERROR "Incorrect number of arguments."
-# define ARGS_FORMAT_ERROR "Bad format of one or more arguments (digits)."
-# define MALLOC_ERROR "Fail to alllocates memory."
+# define ARGS_FORMAT_ERROR "Bad format of one or more arguments."
+# define MALLOC_ERROR "Fail to alllocate memory."
 # define PHILO_ERROR "Fail to create philosophers."
-# define MUTEX_ERROR "Fail to create mutexes."
+# define MUTEX_ERROR "Fail to create mutex."
 //   S T R U C T U R E S
 
 typedef struct s_philo	t_philo;

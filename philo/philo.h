@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 18:48:21 by victofer          #+#    #+#             */
-/*   Updated: 2023/03/29 10:41:46 by victofer         ###   ########.fr       */
+/*   Updated: 2023/03/29 11:56:29 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int			args_checker(int cant, char **args);
 
 void		ft_putchar_fd(char c, int fd);
 void		ft_putstr_fd(char *s, int fd);
-void		print_error_message(char *error);
+int			print_error_msg(char *error, char *details);
 void		mutex_error(char *error);
 
 //	F R E E   S T U F F

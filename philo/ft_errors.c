@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 10:22:45 by victofer          #+#    #+#             */
-/*   Updated: 2023/03/29 10:41:31 by victofer         ###   ########.fr       */
+/*   Updated: 2023/03/29 12:03:24 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,22 +52,17 @@ void	ft_putstr_fd(char *s, int fd)
  * 
  *	error: error message to be shown.	
  */
-void	print_error_message(char *error)
+int	print_error_msg(char *error, char *details)
 {
 	ft_putstr_fd("\033[1;31m ERROR: ", 2);
 	ft_putstr_fd(error, 2);
 	ft_putstr_fd("\033[0m \n", 2);
+	if (details != NULL)
+	{
+		ft_putstr_fd("\033[0;33m \t", 2);
+		ft_putstr_fd(details, 2);
+		ft_putstr_fd("\033[0m \n\n", 2);
+	}
+	return (-1);
 }
 
-static void	print_red_msg(char *error)
-{
-	ft_putstr_fd("\033[1;31m ", 2);
-	ft_putstr_fd(error, 2);
-	ft_putstr_fd("\033[0m \n", 2);
-}
-
-void	mutex_error(char *error)
-{
-	print_error_message(MUTEX_ERROR);
-	print_red_msg(error);
-}

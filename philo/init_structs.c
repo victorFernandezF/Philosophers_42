@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 18:39:40 by victofer          #+#    #+#             */
-/*   Updated: 2023/03/29 10:54:11 by victofer         ###   ########.fr       */
+/*   Updated: 2023/03/29 12:06:25 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,14 @@ static pthread_mutex_t	*init_forks(t_table *table)
 	forks = malloc(sizeof(pthread_mutex_t) * table->nb_philo);
 	if (!forks)
 	{
-		print_error_message(MALLOC_ERROR);
+		print_error_msg(MALLOC_ERROR, "creating forks");
 		return (0);
 	}
 	while (i < table->nb_philo)
 	{
 		if (pthread_mutex_init(&forks[i], 0) != 0)
 		{
-			mutex_error("MUTEX FAILED -> forks in init_forks");
+			print_error_msg(MUTEX_ERROR, "forks in init_forks");
 			free(forks);
 			return (NULL);
 		}
@@ -72,25 +72,34 @@ t_philo	**init_philos(t_table *table)
 
 	philos = malloc(sizeof(t_philo) * table->nb_philo);
 	if (!philos)
-		return (print_error_message(MALLOC_ERROR), NULL);
-	i = 0;
-	while (i < table->nb_philo)
+		return (print_error_msg(MALLOC_ERROR, "creating philos"), NULL);
+	i = -1;
+	while (++i < table->nb_philo)
 	{
 		philos[i] = malloc(sizeof(t_philo) * 1);
 		if (!philos[i])
-			return (print_error_message(MALLOC_ERROR), NULL);
+			return (print_error_msg(MALLOC_ERROR, "crating philos"), NULL);
 		if (pthread_mutex_init(&philos[i]->meal_lock, NULL) != 0)
-			return (print_error_message(MALLOC_ERROR), NULL);
+		{
+			print_error_msg(MUTEX_ERROR, "meal_lock in init_philos");
+			return (NULL);
+		}
 		philos[i]->id = i;
 		philos[i]->table = table;
 		philos[i]->times_ate = 0;
 		philos[i]->forks = malloc(sizeof(int) * 2);
 		asign_forks(philos[i]);
-		i++;
 	}
 	return (philos);
 }
 
+/* 
+ * init_mutexes
+ * ----------------------------
+ *  Initialize mutexes that will be used in the future.
+ * 
+ * tabe: struct with general datas.
+ */
 static int	init_mutexes(t_table *table)
 {
 	table->fork_locks = init_forks(table);
@@ -98,12 +107,12 @@ static int	init_mutexes(t_table *table)
 		return (FALSE);
 	if (pthread_mutex_init(&table->sim_stop_lock, 0) != 0)
 	{
-		mutex_error("MUTEX FAILED -> sim_stop_lock");
+		print_error_msg(MUTEX_ERROR, "sim_stop_lock");
 		return (FALSE);
 	}
 	if (pthread_mutex_init(&table->write_lock, NULL) != 0)
 	{
-		mutex_error("MUTEX FAILED -> write_lock");
+		print_error_msg(MUTEX_ERROR, "write_lock");
 		return (FALSE);
 	}
 	return (TRUE);
@@ -120,7 +129,7 @@ t_table	*init_table(t_table *table, int argc, char **argv)
 {
 	table = malloc(sizeof(t_table));
 	if (!table)
-		return (print_error_message(MALLOC_ERROR), NULL);
+		return (print_error_msg(MALLOC_ERROR, NULL), NULL);
 	table->nb_philo = ft_atoi(argv[1]);
 	table->time_to_die = ft_atoi(argv[1]);
 	table->time_to_eat = ft_atoi(argv[2]);
@@ -132,8 +141,14 @@ t_table	*init_table(t_table *table, int argc, char **argv)
 		table->times_x_eat = ft_atoi(argv[5]);
 	table->philos = init_philos(table);
 	if (!table->philos)
-		return (print_error_message(PHILO_ERROR), NULL);
+	{
+		print_error_msg(PHILO_ERROR, NULL);
+		return (NULL);
+	}
 	if (!init_mutexes(table))
-		return (print_error_message(MUTEX_ERROR), NULL);
+	{
+		free_structs(table);
+		return (NULL);
+	}
 	return (table);
 }
