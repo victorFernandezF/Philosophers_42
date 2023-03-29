@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 18:48:21 by victofer          #+#    #+#             */
-/*   Updated: 2023/03/29 12:27:03 by victofer         ###   ########.fr       */
+/*   Updated: 2023/03/29 18:02:56 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ t_table		*init_table(t_table *table, int argc, char **argv);
 t_philo		**init_philos(t_table *table);
 void		asign_forks(t_philo *philos);
 long int	get_timestamp_ms(void);
-void		*routine(void *args);
 
 //	C H E C K S
 
@@ -40,7 +39,6 @@ int			args_checker(int cant, char **args);
 void		ft_putchar_fd(char c, int fd);
 void		ft_putstr_fd(char *s, int fd);
 int			print_error_msg(char *error, char *details);
-void		mutex_error(char *error);
 
 //	F R E E   S T U F F
 

@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 10:22:45 by victofer          #+#    #+#             */
-/*   Updated: 2023/03/29 12:26:56 by victofer         ###   ########.fr       */
+/*   Updated: 2023/03/29 17:45:23 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,9 @@ void	ft_putstr_fd(char *s, int fd)
  * ----------------------------
  *  Writes 'Error' followed by the error message.
  * 
- *	error: error message to be shown.	
+ *	error: error message to be shown.
+ *	details: a string with some details of the error. this
+ *			argument can be NULL.	
  */
 int	print_error_msg(char *error, char *details)
 {

@@ -6,12 +6,19 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 10:06:24 by victofer          #+#    #+#             */
-/*   Updated: 2023/03/29 10:13:49 by victofer         ###   ########.fr       */
+/*   Updated: 2023/03/29 17:59:14 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
+/* 
+ * mutex_destroyer
+ * ----------------------------
+ *	Destroy all created mutexes.
+ * 
+ *	table: struct with general datas.
+ */
 void	mutex_destroyer(t_table *table)
 {
 	int	i;
@@ -23,6 +30,6 @@ void	mutex_destroyer(t_table *table)
 	{
 		pthread_mutex_destroy(&table->philos[i]->meal_lock);
 		pthread_mutex_destroy(&table->fork_locks[i]);
+	i++;
 	}
-	ft_putstr_fd("Muutexes destroyed successfully", 2);
 }

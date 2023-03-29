@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 11:39:58 by victofer          #+#    #+#             */
-/*   Updated: 2023/03/29 11:58:47 by victofer         ###   ########.fr       */
+/*   Updated: 2023/03/29 17:47:22 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int	number_args_checker(int cant)
 {
 	if (cant != 5 && cant != 4)
 	{
-		print_error_msg(NUM_ARGS_ERROR, "4 or 5 arguments");
+		print_error_msg(NUM_ARGS_ERROR, "Philo acepts 4 or 5 arguments");
 		return (-1);
 	}
 	return (0);
