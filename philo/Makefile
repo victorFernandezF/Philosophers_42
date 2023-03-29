@@ -6,7 +6,7 @@
 #    By: victofer <victofer@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/15 18:07:00 by victofer          #+#    #+#              #
-#    Updated: 2023/03/29 10:18:44 by victofer         ###   ########.fr        #
+#    Updated: 2023/03/29 12:27:38 by victofer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,6 +55,7 @@ norminette:
 	@sleep 1
 	@echo "$(BOLD)"
 	@norminette
+	@echo ""
 	@echo "$(Y)------- $(G)EVERITHING OK$(Y) -------$(E)"
 
 $(NAME): $(OBJS)
