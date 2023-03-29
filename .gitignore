@@ -1,6 +1,5 @@
 .DS_Store
 *.md
-README
 *.tmp
 *.out
 a.out*
