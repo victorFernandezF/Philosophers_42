@@ -6,7 +6,7 @@
 #    By: victofer <victofer@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/15 18:07:00 by victofer          #+#    #+#              #
-#    Updated: 2023/03/28 10:43:07 by victofer         ###   ########.fr        #
+#    Updated: 2023/03/29 10:18:44 by victofer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ SRC 	= 	main.c \
 			leaks.c \
 			time.c \
 			init_structs.c \
+			mutex_destroyer.c \
 			
 OBJS		= $(SRC:.c=.o)
 

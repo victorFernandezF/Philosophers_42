@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 18:48:21 by victofer          #+#    #+#             */
-/*   Updated: 2023/03/28 12:48:25 by victofer         ###   ########.fr       */
+/*   Updated: 2023/03/29 10:41:46 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,13 @@ int			args_checker(int cant, char **args);
 void		ft_putchar_fd(char c, int fd);
 void		ft_putstr_fd(char *s, int fd);
 void		print_error_message(char *error);
+void		mutex_error(char *error);
 
 //	F R E E   S T U F F
 
 void		free_structs(t_table *table);
+void		mutex_destroyer(t_table *table);
+
 
 //	T E S T I N G   S T U F F    ( D E L E TE ) 
 
