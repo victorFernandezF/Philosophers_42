@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 18:12:31 by victofer          #+#    #+#             */
-/*   Updated: 2023/03/28 12:11:09 by victofer         ###   ########.fr       */
+/*   Updated: 2023/03/29 10:39:26 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	free_structs(t_table *table)
 {
 	int	i;
 
-	if (!table)
+	if (table == NULL)
 		return ;
 	if (table->fork_locks != NULL)
 		free(table->fork_locks);
@@ -39,5 +39,6 @@ void	free_structs(t_table *table)
 		free(table->philos);
 	}
 	free(table);
+	table = NULL;
 	return ;
 }
