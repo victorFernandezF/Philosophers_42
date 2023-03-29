@@ -6,11 +6,36 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 18:39:40 by victofer          #+#    #+#             */
-/*   Updated: 2023/03/28 18:44:45 by victofer         ###   ########.fr       */
+/*   Updated: 2023/03/29 10:54:11 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
+static pthread_mutex_t	*init_forks(t_table *table)
+{
+	pthread_mutex_t	*forks;
+	int				i;
+
+	i = 0;
+	forks = malloc(sizeof(pthread_mutex_t) * table->nb_philo);
+	if (!forks)
+	{
+		print_error_message(MALLOC_ERROR);
+		return (0);
+	}
+	while (i < table->nb_philo)
+	{
+		if (pthread_mutex_init(&forks[i], 0) != 0)
+		{
+			mutex_error("MUTEX FAILED -> forks in init_forks");
+			free(forks);
+			return (NULL);
+		}
+		i++;
+	}
+	return (forks);
+}
 
 /* 
  * asign_forks
@@ -66,6 +91,24 @@ t_philo	**init_philos(t_table *table)
 	return (philos);
 }
 
+static int	init_mutexes(t_table *table)
+{
+	table->fork_locks = init_forks(table);
+	if (!table->fork_locks)
+		return (FALSE);
+	if (pthread_mutex_init(&table->sim_stop_lock, 0) != 0)
+	{
+		mutex_error("MUTEX FAILED -> sim_stop_lock");
+		return (FALSE);
+	}
+	if (pthread_mutex_init(&table->write_lock, NULL) != 0)
+	{
+		mutex_error("MUTEX FAILED -> write_lock");
+		return (FALSE);
+	}
+	return (TRUE);
+}
+
 /* 
  * init_table
  * ----------------------------
@@ -89,6 +132,8 @@ t_table	*init_table(t_table *table, int argc, char **argv)
 		table->times_x_eat = ft_atoi(argv[5]);
 	table->philos = init_philos(table);
 	if (!table->philos)
-		return (print_error_message(MALLOC_ERROR), NULL);
+		return (print_error_message(PHILO_ERROR), NULL);
+	if (!init_mutexes(table))
+		return (print_error_message(MUTEX_ERROR), NULL);
 	return (table);
 }
