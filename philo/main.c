@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 18:20:43 by victofer          #+#    #+#             */
-/*   Updated: 2023/03/29 17:55:48 by victofer         ###   ########.fr       */
+/*   Updated: 2023/03/29 18:20:43 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	main(int argc, char **argv)
 {
 	t_table	*table;
 
-	//atexit(leaks);
+	atexit(leaks);
 	table = NULL;
 	argc--;
 	if (number_args_checker(argc) == -1)

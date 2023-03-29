@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 18:32:34 by victofer          #+#    #+#             */
-/*   Updated: 2023/03/20 18:53:54 by victofer         ###   ########.fr       */
+/*   Updated: 2023/03/29 18:19:08 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,12 @@
  * ----------------------------
  *   Returns the current timestamp converted to miliseconds.
  */
-long int	get_timestamp_ms(void)
+unsigned long	get_timestamp_ms(void)
 {
 	struct timeval	cur;
+	unsigned long		time;
 
 	gettimeofday(&cur, NULL);
-	return (1000 * cur.tv_sec);
+	time = (cur.tv_sec) * 1000 + (cur.tv_sec) / 1000;
+	return (time);
 }
