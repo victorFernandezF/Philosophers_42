@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 18:43:43 by victofer          #+#    #+#             */
-/*   Updated: 2023/03/30 10:59:04 by victofer         ###   ########.fr       */
+/*   Updated: 2023/03/30 11:42:50 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	start_philosophers(t_table	*table)
 	int	i;
 
 	i = -1;
-	//table->time_start = get_timestamp_ms;
+	table->time_start = (long long)get_timestamp_ms;
 	while (++i < table->nb_philo)
 	{	
 		if (pthread_create(&table->philos[i]->th, NULL, &sim, table) != 0)
