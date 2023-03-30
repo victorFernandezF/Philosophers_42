@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 18:39:40 by victofer          #+#    #+#             */
-/*   Updated: 2023/03/30 10:41:39 by victofer         ###   ########.fr       */
+/*   Updated: 2023/03/30 10:55:43 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,7 +142,7 @@ t_table	*init_table(t_table *table, int argc, char **argv)
 	table->philos = init_philos(table);
 	if (!table->philos)
 	{
-		print_error_msg(PHILO_ERROR, NULL);
+		print_error_msg(THREAD_ERROR, NULL);
 		return (NULL);
 	}
 	if (!init_mutexes(table))

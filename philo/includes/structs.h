@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 18:49:04 by victofer          #+#    #+#             */
-/*   Updated: 2023/03/30 10:03:07 by victofer         ###   ########.fr       */
+/*   Updated: 2023/03/30 10:54:04 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # define FALSE 0
 # define INPUT_ERROR "BAD INPUT"
 # define MALLOC_ERROR "MEMORY ERROR"
-# define PHILO_ERROR "THREAD ERROR."
+# define THREAD_ERROR "THREAD ERROR."
 # define MUTEX_ERROR "MUTEX ERROR"
 
 //   S T R U C T U R E S
@@ -36,6 +36,7 @@ typedef struct s_table
 	time_t			time_to_sleep;
 	int				times_x_eat;
 	int				simulation_stop;
+	pthread_t		dead_checker;
 	pthread_mutex_t	sim_stop_lock;
 	pthread_mutex_t	write_lock;
 	pthread_mutex_t	*fork_locks;
