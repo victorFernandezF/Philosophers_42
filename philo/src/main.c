@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 18:20:43 by victofer          #+#    #+#             */
-/*   Updated: 2023/03/30 10:41:08 by victofer         ###   ########.fr       */
+/*   Updated: 2023/03/30 10:58:19 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int	main(int argc, char **argv)
 		free_structs(table);
 		return (-1);
 	}
+	start_philosophers(table);
 	mutex_destroyer(table);
 	free_structs(table);
 	return (0);

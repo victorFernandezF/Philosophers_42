@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 18:43:43 by victofer          #+#    #+#             */
-/*   Updated: 2023/03/30 10:25:48 by victofer         ###   ########.fr       */
+/*   Updated: 2023/03/30 10:59:04 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,14 @@ static void	*sim(void	*arg)
 	return (NULL);
 }
 
+/* 
+ * start_philosophers
+ * ----------------------------
+ *  Create one thread for each philo and a thread to
+ *  control the deads philos.
+ * 
+ *	tabe: struct with general datas.
+ */
 void	start_philosophers(t_table	*table)
 {
 	int	i;
@@ -28,8 +36,16 @@ void	start_philosophers(t_table	*table)
 	{	
 		if (pthread_create(&table->philos[i]->th, NULL, &sim, table) != 0)
 		{
-			print_error_msg(PHILO_ERROR, "fail crating threads");
+			print_error_msg(THREAD_ERROR, "fail crating philo threads");
 			return ;
 		}
 	}
+	if (table->nb_philo > 1)
+	{
+		if (pthread_create(&table->dead_checker, NULL, &sim, table) != 0)
+		{
+			print_error_msg(THREAD_ERROR, "fail creating dead_checker thread");
+			return ;
+		}
+	}	
 }

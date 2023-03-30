@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 18:48:21 by victofer          #+#    #+#             */
-/*   Updated: 2023/03/29 18:22:37 by victofer         ###   ########.fr       */
+/*   Updated: 2023/03/30 10:57:59 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,10 @@ t_table		*init_table(t_table *table, int argc, char **argv);
 t_philo		**init_philos(t_table *table);
 void		asign_forks(t_philo *philos);
 long long	get_timestamp_ms(void);
+
+//	S I M U L A T I O N
+
+void	start_philosophers(t_table	*table);
 
 //	C H E C K S
 
