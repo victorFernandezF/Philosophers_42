@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 11:39:58 by victofer          #+#    #+#             */
-/*   Updated: 2023/03/30 10:13:10 by victofer         ###   ########.fr       */
+/*   Updated: 2023/03/30 10:31:13 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,15 +39,14 @@ int	args_checker(int cant, char **args)
 	i = 0;
 	while (++i <= cant)
 	{
-		j = 0;
+		j = -1;
 		while (args[i][j])
 		{
-			if (!is_digit(args[i][j]))
+			if (!is_digit(args[i][++j]))
 			{
 				print_error_msg(INPUT_ERROR, "Arguments must be digits");
 				return (-1);
 			}
-		j++;
 		}
 	}
 	return (0);
@@ -65,7 +64,7 @@ int	number_args_checker(int cant)
 {
 	if (cant != 5 && cant != 4)
 	{
-		print_error_msg(INPUT_ERROR, "Philo acepts 4 or 5 arguments");
+		print_error_msg(INPUT_ERROR, "This program acepts 4 or 5 arguments");
 		return (-1);
 	}
 	return (0);
