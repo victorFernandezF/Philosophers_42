@@ -6,11 +6,11 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 10:06:24 by victofer          #+#    #+#             */
-/*   Updated: 2023/03/29 17:59:14 by victofer         ###   ########.fr       */
+/*   Updated: 2023/03/30 10:13:49 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "../includes/philo.h"
 
 /* 
  * mutex_destroyer

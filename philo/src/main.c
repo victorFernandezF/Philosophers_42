@@ -6,11 +6,11 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 18:20:43 by victofer          #+#    #+#             */
-/*   Updated: 2023/03/29 18:20:43 by victofer         ###   ########.fr       */
+/*   Updated: 2023/03/30 10:16:09 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "../includes/philo.h"
 
 int	main(int argc, char **argv)
 {

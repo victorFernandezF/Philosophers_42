@@ -6,11 +6,11 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 19:03:50 by victofer          #+#    #+#             */
-/*   Updated: 2023/03/28 12:10:57 by victofer         ###   ########.fr       */
+/*   Updated: 2023/03/30 10:14:25 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "../includes/philo.h"
 
 static int	ft_is_sign(char n)
 {

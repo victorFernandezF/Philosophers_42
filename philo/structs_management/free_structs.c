@@ -6,11 +6,11 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 18:12:31 by victofer          #+#    #+#             */
-/*   Updated: 2023/03/29 10:39:26 by victofer         ###   ########.fr       */
+/*   Updated: 2023/03/30 10:13:27 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "../includes/philo.h"
 
 /* 
  * free_structs

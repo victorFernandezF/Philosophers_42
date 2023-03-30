@@ -1,24 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   leaks.c                                            :+:      :+:    :+:   */
+/*   thread.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/20 18:04:17 by victofer          #+#    #+#             */
-/*   Updated: 2023/03/29 17:55:44 by victofer         ###   ########.fr       */
+/*   Created: 2023/03/21 18:43:43 by victofer          #+#    #+#             */
+/*   Updated: 2023/03/30 10:25:48 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "../includes/philo.h"
 
-/* 
- * leaks
- * ----------------------------
- *  This functions is temporal.
- * 	DELETE BEFORE PRESENT
-*/
-void	leaks(void)
+static void	*sim(void	*arg)
 {
-	system("leaks -q philo");
+	(void)arg;
+	return (NULL);
+}
+
+void	start_philosophers(t_table	*table)
+{
+	int	i;
+
+	i = -1;
+	//table->time_start = get_timestamp_ms;
+	while (++i < table->nb_philo)
+	{	
+		if (pthread_create(&table->philos[i]->th, NULL, &sim, table) != 0)
+		{
+			print_error_msg(PHILO_ERROR, "fail crating threads");
+			return ;
+		}
+	}
 }

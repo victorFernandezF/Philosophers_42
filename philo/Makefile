@@ -6,22 +6,23 @@
 #    By: victofer <victofer@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/15 18:07:00 by victofer          #+#    #+#              #
-#    Updated: 2023/03/29 12:27:38 by victofer         ###   ########.fr        #
+#    Updated: 2023/03/30 10:25:04 by victofer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= 	philo
 CFLAGS 	= 	-Wall -Wextra -Werror -pthread
 
-SRC 	= 	main.c \
-			ft_atoi.c \
-			ft_errors.c \
-			checks.c \
-			free_structs.c \
-			leaks.c \
-			time.c \
-			init_structs.c \
-			mutex_destroyer.c \
+SRC 	= 	src/main.c \
+			src/ft_atoi.c \
+			src/leaks.c \
+			src/time.c \
+			threads_mutex/thread.c \
+			errors_management/ft_errors.c \
+			input_checks/checks.c \
+			structs_management/free_structs.c \
+			structs_management/init_structs.c \
+			threads_mutex/mutex_destroyer.c \
 			
 OBJS		= $(SRC:.c=.o)
 
