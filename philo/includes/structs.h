@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 18:49:04 by victofer          #+#    #+#             */
-/*   Updated: 2023/03/30 10:54:04 by victofer         ###   ########.fr       */
+/*   Updated: 2023/03/30 11:31:44 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ typedef struct s_philo	t_philo;
 
 typedef struct s_table
 {
-	int				time_start;
+	time_t			time_start;
 	int				nb_philo;
 	time_t			time_to_die;
 	time_t			time_to_eat;
