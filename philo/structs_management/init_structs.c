@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 18:39:40 by victofer          #+#    #+#             */
-/*   Updated: 2023/03/30 10:13:35 by victofer         ###   ########.fr       */
+/*   Updated: 2023/03/30 10:41:39 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,14 @@ static pthread_mutex_t	*init_forks(t_table *table)
 	forks = malloc(sizeof(pthread_mutex_t) * table->nb_philo);
 	if (!forks)
 	{
-		print_error_msg(MALLOC_ERROR, "creating forks");
+		print_error_msg(MALLOC_ERROR, "fail allocating forks");
 		return (0);
 	}
 	while (i < table->nb_philo)
 	{
 		if (pthread_mutex_init(&forks[i], 0) != 0)
 		{
-			print_error_msg(MUTEX_ERROR, "forks in init_forks");
+			print_error_msg(MUTEX_ERROR, "fail to create mutex: forks");
 			free(forks);
 			return (NULL);
 		}
@@ -72,16 +72,16 @@ t_philo	**init_philos(t_table *table)
 
 	philos = malloc(sizeof(t_philo) * table->nb_philo);
 	if (!philos)
-		return (print_error_msg(MALLOC_ERROR, "creating philos"), NULL);
+		return (print_error_msg(MALLOC_ERROR, "fail to allocate philos"), NULL);
 	i = -1;
 	while (++i < table->nb_philo)
 	{
 		philos[i] = malloc(sizeof(t_philo) * 1);
 		if (!philos[i])
-			return (print_error_msg(MALLOC_ERROR, "crating philos"), NULL);
+			return (print_error_msg(MALLOC_ERROR, "fail alloc. philos"), NULL);
 		if (pthread_mutex_init(&philos[i]->meal_lock, NULL) != 0)
 		{
-			print_error_msg(MUTEX_ERROR, "meal_lock in init_philos");
+			print_error_msg(MUTEX_ERROR, "fail to create mutex: meal_lock");
 			return (NULL);
 		}
 		philos[i]->id = i;
@@ -107,12 +107,12 @@ static int	init_mutexes(t_table *table)
 		return (FALSE);
 	if (pthread_mutex_init(&table->sim_stop_lock, 0) != 0)
 	{
-		print_error_msg(MUTEX_ERROR, "sim_stop_lock");
+		print_error_msg(MUTEX_ERROR, "fail to create mutex: sim_stop_lock");
 		return (FALSE);
 	}
 	if (pthread_mutex_init(&table->write_lock, NULL) != 0)
 	{
-		print_error_msg(MUTEX_ERROR, "write_lock");
+		print_error_msg(MUTEX_ERROR, "fail to create mutex: write_lock");
 		return (FALSE);
 	}
 	return (TRUE);
