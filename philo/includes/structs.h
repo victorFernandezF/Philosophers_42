@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 18:49:04 by victofer          #+#    #+#             */
-/*   Updated: 2023/03/30 11:31:44 by victofer         ###   ########.fr       */
+/*   Updated: 2023/03/30 11:49:32 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # define MALLOC_ERROR "MEMORY ERROR"
 # define THREAD_ERROR "THREAD ERROR."
 # define MUTEX_ERROR "MUTEX ERROR"
+# define GENERIC_ERROR "SOMETHING WERE WRONG"
 
 //   S T R U C T U R E S
 

@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 10:22:45 by victofer          #+#    #+#             */
-/*   Updated: 2023/03/30 10:12:56 by victofer         ###   ########.fr       */
+/*   Updated: 2023/03/30 11:50:53 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ void	ft_putstr_fd(char *s, int fd)
  */
 int	print_error_msg(char *error, char *details)
 {
+	if (error == NULL)
+		error = GENERIC_ERROR;
 	ft_putstr_fd("\033[1;31m ERROR: ", 2);
 	ft_putstr_fd(error, 2);
 	ft_putstr_fd("\033[0m \n", 2);
