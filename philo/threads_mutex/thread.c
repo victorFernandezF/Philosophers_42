@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 18:43:43 by victofer          #+#    #+#             */
-/*   Updated: 2023/03/30 11:42:50 by victofer         ###   ########.fr       */
+/*   Updated: 2023/03/30 12:18:47 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 static void	*sim(void	*arg)
 {
-	(void)arg;
+	pthread_t	id;
+
+	id = (pthread_t)arg;
 	return (NULL);
 }
 
@@ -49,3 +51,26 @@ void	start_philosophers(t_table	*table)
 		}
 	}	
 }
+
+/* void	stop_philosophers(t_table	*table)
+{
+	int	i;
+
+	i = -1;
+	while (++i < table->nb_philo)
+	{	
+		if (pthread_join(&table->philos[i]->th, NULL) != 0)
+		{
+			print_error_msg(THREAD_ERROR, "fail joinning philo threads");
+			return ;
+		}
+	}
+	if (table->nb_philo > 1)
+	{
+		if (pthread_join(&table->dead_checker, NULL) != 0)
+		{
+			print_error_msg(THREAD_ERROR, "fail joinning dead_checker thread");
+			return ;
+		}
+	}	
+} */
