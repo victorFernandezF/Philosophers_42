@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 18:12:31 by victofer          #+#    #+#             */
-/*   Updated: 2023/03/30 10:13:27 by victofer         ###   ########.fr       */
+/*   Updated: 2023/03/30 11:53:36 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
  * free_structs
  * ----------------------------
  *  Frees the struct table and its content.
+ * 
+ *	table: struct with basic datas.
  */
 void	free_structs(t_table *table)
 {
