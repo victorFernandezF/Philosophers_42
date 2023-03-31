@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 18:48:21 by victofer          #+#    #+#             */
-/*   Updated: 2023/03/31 10:51:37 by victofer         ###   ########.fr       */
+/*   Updated: 2023/03/31 12:54:01 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ void		stop_philosophers(t_table	*table);
 int			number_args_checker(int cant);
 int			args_format_checker(int cant, char **args);
 int			input_checker(int cant, char **args);
-
 
 //	E R R O R O S 
 

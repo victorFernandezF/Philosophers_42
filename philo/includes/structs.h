@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 18:49:04 by victofer          #+#    #+#             */
-/*   Updated: 2023/03/30 11:49:32 by victofer         ###   ########.fr       */
+/*   Updated: 2023/03/31 13:51:02 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ typedef struct s_table
 
 typedef struct s_philo
 {
-	pthread_t		th;
+	pthread_t		thid;
 	int				id;
 	int				times_ate;
 	int				*forks;

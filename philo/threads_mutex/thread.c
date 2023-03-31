@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 18:43:43 by victofer          #+#    #+#             */
-/*   Updated: 2023/03/31 10:41:00 by victofer         ###   ########.fr       */
+/*   Updated: 2023/03/31 13:51:29 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	start_philosophers(t_table	*table)
 	table->time_start = get_timestamp_ms() + (table->nb_philo * 2 * 10);
 	while (++i < table->nb_philo)
 	{	
-		if (pthread_create(&table->philos[i]->th, NULL, &sim, table) != 0)
+		if (pthread_create(&table->philos[i]->thid, NULL, &sim, table) != 0)
 		{
 			print_error_msg(THREAD_ERROR, "fail crating philo threads");
 			return (0);
@@ -70,7 +70,7 @@ void	stop_philosophers(t_table	*table)
 
 	i = -1;
 	while (++i < table->nb_philo)
-		pthread_join(table->philos[i]->th, NULL);
+		pthread_join(table->philos[i]->thid, NULL);
 	if (table->nb_philo > 1)
 		pthread_join(table->dead_checker, NULL);
 	mutex_destroyer(table);
