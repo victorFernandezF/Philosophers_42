@@ -6,12 +6,12 @@
 #    By: victofer <victofer@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/15 18:07:00 by victofer          #+#    #+#              #
-#    Updated: 2023/03/30 10:25:04 by victofer         ###   ########.fr        #
+#    Updated: 2023/03/31 13:53:16 by victofer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= 	philo
-CFLAGS 	= 	-Wall -Wextra -Werror -pthread
+CFLAGS 	= 	-Wall -Wextra -Werror -pthread #-fsanitize=thread -g
 
 SRC 	= 	src/main.c \
 			src/ft_atoi.c \
