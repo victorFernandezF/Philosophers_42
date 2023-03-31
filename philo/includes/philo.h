@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 18:48:21 by victofer          #+#    #+#             */
-/*   Updated: 2023/03/30 11:29:59 by victofer         ###   ########.fr       */
+/*   Updated: 2023/03/31 10:36:01 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ time_t		get_timestamp_ms(void);
 
 //	S I M U L A T I O N
 
-void		start_philosophers(t_table	*table);
+int			start_philosophers(t_table	*table);
+void		stop_philosophers(t_table	*table);
 
 //	C H E C K S
 

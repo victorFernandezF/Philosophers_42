@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 18:43:43 by victofer          #+#    #+#             */
-/*   Updated: 2023/03/30 12:18:47 by victofer         ###   ########.fr       */
+/*   Updated: 2023/03/31 10:37:06 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,18 +28,18 @@ static void	*sim(void	*arg)
  * 
  *	tabe: struct with general datas.
  */
-void	start_philosophers(t_table	*table)
+int	start_philosophers(t_table	*table)
 {
 	int	i;
 
 	i = -1;
-	table->time_start = (long long)get_timestamp_ms;
+	table->time_start = get_timestamp_ms() + (table->nb_philo * 2 * 10);
 	while (++i < table->nb_philo)
 	{	
 		if (pthread_create(&table->philos[i]->th, NULL, &sim, table) != 0)
 		{
 			print_error_msg(THREAD_ERROR, "fail crating philo threads");
-			return ;
+			return (0);
 		}
 	}
 	if (table->nb_philo > 1)
@@ -47,30 +47,21 @@ void	start_philosophers(t_table	*table)
 		if (pthread_create(&table->dead_checker, NULL, &sim, table) != 0)
 		{
 			print_error_msg(THREAD_ERROR, "fail creating dead_checker thread");
-			return ;
+			return (0);
 		}
-	}	
+	}
+	return (1);
 }
 
-/* void	stop_philosophers(t_table	*table)
+void	stop_philosophers(t_table	*table)
 {
 	int	i;
 
 	i = -1;
 	while (++i < table->nb_philo)
-	{	
-		if (pthread_join(&table->philos[i]->th, NULL) != 0)
-		{
-			print_error_msg(THREAD_ERROR, "fail joinning philo threads");
-			return ;
-		}
-	}
+		pthread_join(table->philos[i]->th, NULL);
 	if (table->nb_philo > 1)
-	{
-		if (pthread_join(&table->dead_checker, NULL) != 0)
-		{
-			print_error_msg(THREAD_ERROR, "fail joinning dead_checker thread");
-			return ;
-		}
-	}	
-} */
+		pthread_join(table->dead_checker, NULL);
+	mutex_destroyer(table);
+	free_structs(table);
+}
