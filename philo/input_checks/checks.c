@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 11:39:58 by victofer          #+#    #+#             */
-/*   Updated: 2023/03/31 11:03:31 by victofer         ###   ########.fr       */
+/*   Updated: 2023/03/31 11:16:06 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
  */
 static int	is_digit(char c)
 {
-	return (c >= '0' && c <= '9');
+	return ((c >= '0' && c <= '9') || c == '-' || c == '+');
 }
 
 /* 
@@ -70,9 +70,9 @@ int	args_format_checker(int cant, char **args)
 	while (++i <= cant)
 	{
 		j = -1;
-		while (args[i][j])
+		while (args[i][++j])
 		{
-			if (!is_digit(args[i][++j]))
+			if (!is_digit(args[i][j]))
 			{
 				print_error_msg(INPUT_ERROR, "Arguments must be digits");
 				return (-1);
