@@ -6,7 +6,7 @@
 #    By: victofer <victofer@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/15 18:07:00 by victofer          #+#    #+#              #
-#    Updated: 2023/04/03 12:25:02 by victofer         ###   ########.fr        #
+#    Updated: 2023/04/03 13:10:16 by victofer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ SRC 	= 	src/main.c \
 			src/time.c \
 			errors_management/ft_errors.c \
 			input_checks/checks.c \
+			input_checks/helper.c \
 			structs_management/free_structs.c \
 			structs_management/init_structs.c \
 			threads_mutex/mutex_destroyer.c \

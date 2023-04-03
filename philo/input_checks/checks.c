@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 11:39:58 by victofer          #+#    #+#             */
-/*   Updated: 2023/03/31 11:16:06 by victofer         ###   ########.fr       */
+/*   Updated: 2023/04/03 13:33:23 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,8 @@ int	number_args_checker(int cant)
 {
 	if (cant != 5 && cant != 4)
 	{
-		print_error_msg(INPUT_ERROR, "This program acepts 4 or 5 arguments");
+		print_error_msg(INPUT_ERROR,
+			"This program acepts 4 or 5 arguments. \n\t\tType [-h] to get help");
 		return (-1);
 	}
 	return (0);
@@ -114,6 +115,11 @@ int	number_args_checker(int cant)
  */
 int	input_checker(int cant, char **args)
 {
+	if (cant == 1 && (args[1][0] == '-' && args[1][1] == 'h'))
+	{
+		helper();
+		return (-1);
+	}		
 	if (number_args_checker(cant) == -1)
 		return (-1);
 	if (args_format_checker(cant, args) == -1)
