@@ -4,3 +4,4 @@
 *.out
 a.out*
 .vscode/settings.json
+*.json
