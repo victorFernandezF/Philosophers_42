@@ -6,7 +6,7 @@
 #    By: Victofer <victofer@student.42malaga.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/15 18:07:00 by victofer          #+#    #+#              #
-#    Updated: 2023/04/03 18:34:34 by Victofer         ###   ########.fr        #
+#    Updated: 2023/04/03 18:48:34 by Victofer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,7 @@ SRC 	= 	src/main.c \
 			threads_mutex/thread.c \
 			threads_mutex/routines.c \
 			threads_mutex/more_routines.c \
+			status_output/output.c \
 			
 OBJS		= $(SRC:.c=.o)
 
