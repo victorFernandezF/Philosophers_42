@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 18:49:04 by victofer          #+#    #+#             */
-/*   Updated: 2023/03/31 13:51:02 by victofer         ###   ########.fr       */
+/*   Updated: 2023/04/03 12:57:08 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,15 +54,5 @@ typedef struct s_philo
 	time_t			last_meal;
 	t_table			*table;
 }	t_philo;
-
-typedef enum e_status
-{
-	DEAD = 0,
-	EATING = 0,
-	SLEEPING = 0,
-	THINKING = 0,
-	FORK_1 = 0,
-	FORK_2 = 0
-}	t_status;
 
 #endif
