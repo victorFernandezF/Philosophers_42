@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 18:43:43 by victofer          #+#    #+#             */
-/*   Updated: 2023/03/31 13:51:29 by victofer         ###   ########.fr       */
+/*   Updated: 2023/04/03 10:41:32 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	*sim(void	*arg)
 	pthread_t	id;
 
 	id = (pthread_t)arg;
-	printf("Hello i'm a thread\n");
+	//printf("Hello i'm a thread\n");
 	return (NULL);
 }
 
@@ -27,7 +27,7 @@ static void	*dead(void	*arg)
 	pthread_t	id;
 
 	id = (pthread_t)arg;
-	printf("I'M DEAD CHECKER\n");
+	//printf("I'M DEAD CHECKER\n");
 	return (NULL);
 }
 
@@ -44,7 +44,7 @@ int	start_philosophers(t_table	*table)
 	int	i;
 
 	i = -1;
-	table->time_start = get_timestamp_ms() + (table->nb_philo * 2 * 10);
+	table->time_start = get_timestamp_ms();
 	while (++i < table->nb_philo)
 	{	
 		if (pthread_create(&table->philos[i]->thid, NULL, &sim, table) != 0)
