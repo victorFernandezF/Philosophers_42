@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_errors.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Victofer <victofer@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 10:22:45 by victofer          #+#    #+#             */
-/*   Updated: 2023/04/03 10:43:23 by victofer         ###   ########.fr       */
+/*   Updated: 2023/04/03 18:44:37 by Victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,6 @@ void	ft_putstr_fd(char *s, int fd)
 		ft_putchar_fd(s[i], fd);
 		i++;
 	}
-}
-
-void	print_status(t_philo *philo, char *status)
-{
-	printf("%ld %d %s\n", get_timestamp_ms()
-		- philo->table->time_start, philo->id + 1, status);
 }
 
 /* 

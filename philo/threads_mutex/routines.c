@@ -6,7 +6,7 @@
 /*   By: Victofer <victofer@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 10:56:14 by victofer          #+#    #+#             */
-/*   Updated: 2023/04/03 17:38:27 by Victofer         ###   ########.fr       */
+/*   Updated: 2023/04/03 18:14:58 by Victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,24 @@ void	*general(void	*arg)
 	t_philo	*philo;
 
 	philo = (t_philo *)arg;
+	if (philo->table->times_x_eat == 0)
+		return (NULL);
+	pthread_mutex_lock(&philo->meal_lock);
+	philo->last_meal = philo->table->time_start;
+	pthread_mutex_unlock(&philo->meal_lock);
+	if (philo->table->time_to_die == 0)
+		return (NULL);
 	if (philo->table->nb_philo == 1)
 		one_and_only(philo);
+	else if (philo->id % 2 == 0)
+		// go to think to avoid deathlock.
+	/*while (is_simulation_stop(philo->table) == FALSE)
+	{
+		// eat
+		// sleep
+		// think
+	}
+	*/
 	return (NULL);
 }
 

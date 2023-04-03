@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: victofer <victofer@student.42.fr>          +#+  +:+       +#+         #
+#    By: Victofer <victofer@student.42malaga.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/15 18:07:00 by victofer          #+#    #+#              #
-#    Updated: 2023/04/03 13:52:07 by victofer         ###   ########.fr        #
+#    Updated: 2023/04/03 18:34:34 by Victofer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ SRC 	= 	src/main.c \
 			threads_mutex/mutex_destroyer.c \
 			threads_mutex/thread.c \
 			threads_mutex/routines.c \
+			threads_mutex/more_routines.c \
 			
 OBJS		= $(SRC:.c=.o)
 
