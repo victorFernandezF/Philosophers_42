@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   routines.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Victofer <victofer@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 10:56:14 by victofer          #+#    #+#             */
-/*   Updated: 2023/04/03 13:46:38 by victofer         ###   ########.fr       */
+/*   Updated: 2023/04/03 17:38:27 by Victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void	*dead(void	*arg)
 	pthread_t	id;
 
 	id = (pthread_t)arg;
+	printf("%ld", id);
 	return (NULL);
 }
 
@@ -48,13 +49,15 @@ void	*dead(void	*arg)
  *	Calculate the time that a philo has to sleep
  *	and puts philo to spleep
  */
-void	philo_sleep(t_philo *philo)
+void	philo_wait_time(t_table *table, time_t wait_time)
 {
-	time_t	sleeping;
+	time_t	wait;
 
-	sleeping = get_timestamp_ms() + philo->table->time_to_sleep;
-	while (get_timestamp_ms() < sleeping)
+	wait = get_timestamp_ms() + wait_time;
+	while (get_timestamp_ms() < wait)
 	{
+		if (is_simulation_stop(table))
+			break ;
 		usleep(100);
 	}
 }
@@ -74,7 +77,7 @@ void	*one_and_only(void	*arg)
 	philo = (t_philo *)arg;
 	pthread_mutex_lock(&philo->table->fork_locks[philo->forks[0]]);
 	print_status(philo, "has taken a fork");
-	philo_sleep(philo);
+	philo_wait_time(philo->table, philo->table->time_to_die);
 	print_status(philo, "died");
 	pthread_mutex_unlock(&philo->table->fork_locks[philo->forks[0]]);
 	return (NULL);

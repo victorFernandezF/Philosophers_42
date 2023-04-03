@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Victofer <victofer@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 18:48:21 by victofer          #+#    #+#             */
-/*   Updated: 2023/04/03 13:35:44 by victofer         ###   ########.fr       */
+/*   Updated: 2023/04/03 17:35:38 by Victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,14 @@ int			start_philosophers(t_table	*table);
 void		stop_philosophers(t_table	*table);
 void		print_status(t_philo *philos, char *status);
 int			only_one_philo(t_table *table);
+int	        is_simulation_stop(t_table *table);
 
 //	R O U T I N E S 
-
 
 void		*general(void	*arg);
 void		*dead(void	*arg);
 void		*one_and_only(void	*arg);
-void		philo_sleep(t_philo *philo);
+void	    philo_wait_time(t_table *table, time_t wait_time);
 
 //	C H E C K S
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   thread.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Victofer <victofer@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 18:43:43 by victofer          #+#    #+#             */
-/*   Updated: 2023/04/03 11:21:24 by victofer         ###   ########.fr       */
+/*   Updated: 2023/04/03 17:22:50 by Victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,18 @@ int	start_philosophers(t_table	*table)
 		}
 	}
 	return (1);
+}
+
+int	is_simulation_stop(t_table *table)
+{
+	int	stop;
+
+	stop = FALSE;
+	pthread_mutex_lock(&table->sim_stop_lock);
+	if (table->simulation_stop == TRUE)
+		stop = TRUE;
+	pthread_mutex_unlock(&table->sim_stop_lock);
+	return (stop);
 }
 
 void	stop_philosophers(t_table	*table)
