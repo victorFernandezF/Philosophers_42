@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 18:48:21 by victofer          #+#    #+#             */
-/*   Updated: 2023/04/03 10:26:42 by victofer         ###   ########.fr       */
+/*   Updated: 2023/04/03 12:18:16 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,16 @@ time_t		get_timestamp_ms(void);
 int			start_philosophers(t_table	*table);
 void		stop_philosophers(t_table	*table);
 void		print_status(t_philo *philos, char *status);
+int			only_one_philo(t_table *table);
+
+//	R O U T I N E S 
+
+void		philo_sleep(t_philo *philo);
+void		*general(void	*arg);
+void		*dead(void	*arg);
+void		*one_and_only(void	*arg);
+
+
 
 //	C H E C K S
 

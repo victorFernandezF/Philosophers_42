@@ -6,7 +6,7 @@
 #    By: victofer <victofer@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/15 18:07:00 by victofer          #+#    #+#              #
-#    Updated: 2023/03/31 13:53:16 by victofer         ###   ########.fr        #
+#    Updated: 2023/04/03 12:25:02 by victofer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,12 +17,13 @@ SRC 	= 	src/main.c \
 			src/ft_atoi.c \
 			src/leaks.c \
 			src/time.c \
-			threads_mutex/thread.c \
 			errors_management/ft_errors.c \
 			input_checks/checks.c \
 			structs_management/free_structs.c \
 			structs_management/init_structs.c \
 			threads_mutex/mutex_destroyer.c \
+			threads_mutex/thread.c \
+			threads_mutex/routines.c \
 			
 OBJS		= $(SRC:.c=.o)
 
