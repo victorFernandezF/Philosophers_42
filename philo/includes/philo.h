@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 18:48:21 by victofer          #+#    #+#             */
-/*   Updated: 2023/04/03 12:45:28 by victofer         ###   ########.fr       */
+/*   Updated: 2023/04/03 13:35:44 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 # include <limits.h>
 # include <stdlib.h>
 # include <sys/time.h>
-# include <pthread.h>
 
 //	I N I T 
 
@@ -49,6 +48,8 @@ void		philo_sleep(t_philo *philo);
 int			number_args_checker(int cant);
 int			args_format_checker(int cant, char **args);
 int			input_checker(int cant, char **args);
+void		helper(void);
+
 
 //	E R R O R O S 
 
