@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 18:49:04 by victofer          #+#    #+#             */
-/*   Updated: 2023/04/03 13:17:32 by victofer         ###   ########.fr       */
+/*   Updated: 2023/04/03 13:52:50 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@
 # define BG  "\x1B[92m"
 # define YELLOW  "\x1B[33m"
 # define BLUE  "\x1B[36m"	
-# define WHITE  "\x1B[37m"
+# define W  "\x1B[37m"
 # define BY  "\x1B[93m"
 
 //   S T R U C T U R E S

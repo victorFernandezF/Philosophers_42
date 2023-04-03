@@ -6,12 +6,18 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 13:08:51 by victofer          #+#    #+#             */
-/*   Updated: 2023/04/03 13:29:18 by victofer         ###   ########.fr       */
+/*   Updated: 2023/04/03 13:55:18 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo.h"
 
+/* 
+ * helper
+ * ----------------------------
+ *	Shows a litle guide with the parameters that
+ *	this program acepts and its order.
+ */
 void	helper(void)
 {
 	printf(GREEN"-----------------------------\n");
@@ -28,5 +34,6 @@ void	helper(void)
 	printf(BLUE"| -> [4] time to sleep                                  |\n");
 	printf(BLUE"| -> [5] [optional] number of times each philo must eat |\n");
 	printf(BLUE"---------------------------------------------------------\n");
+	printf(W" \n");
 
 }
