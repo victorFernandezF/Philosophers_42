@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 18:48:21 by victofer          #+#    #+#             */
-/*   Updated: 2023/04/03 12:18:16 by victofer         ###   ########.fr       */
+/*   Updated: 2023/04/03 12:45:28 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,11 @@ int			only_one_philo(t_table *table);
 
 //	R O U T I N E S 
 
-void		philo_sleep(t_philo *philo);
+
 void		*general(void	*arg);
 void		*dead(void	*arg);
 void		*one_and_only(void	*arg);
-
-
+void		philo_sleep(t_philo *philo);
 
 //	C H E C K S
 

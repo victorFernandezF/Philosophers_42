@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 10:56:14 by victofer          #+#    #+#             */
-/*   Updated: 2023/04/03 12:42:12 by victofer         ###   ########.fr       */
+/*   Updated: 2023/04/03 12:47:37 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	*dead(void	*arg)
  * philo_sleep
  * ----------------------------
  *	Calculate the time that a philo has to sleep
- *	and puts the philo to spleep
+ *	and puts philo to spleep
  */
 void	philo_sleep(t_philo *philo)
 {
@@ -62,9 +62,9 @@ void	philo_sleep(t_philo *philo)
 /* 
  * one_and_only
  * ----------------------------
- *	That function execcutes if there is only one philosopher.
- *	Philo takes one fork (spoiler: there is only one) and is not
- *	able to eat, so philo go to sleep and unfortunateli (or not) philo
+ *	This function execcutes if there is only one philosopher.
+ *	Philo takes one fork (spoiler: there is only one fork) and is not
+ *	able to eat, so philo go to sleep and unfortunately (or not) philo
  *	die. RIP. 
  */
 void	*one_and_only(void	*arg)
