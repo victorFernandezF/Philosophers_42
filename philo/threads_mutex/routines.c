@@ -6,12 +6,18 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 10:56:14 by victofer          #+#    #+#             */
-/*   Updated: 2023/04/03 12:23:31 by victofer         ###   ########.fr       */
+/*   Updated: 2023/04/03 12:42:12 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo.h"
 
+/* 
+ * general
+ * ----------------------------
+ *  A general routine for every thread except dead_checker
+ * 	This routine will call the rest depending on the situation.
+ */
 void	*general(void	*arg)
 {
 	t_philo	*philo;
@@ -22,6 +28,12 @@ void	*general(void	*arg)
 	return (NULL);
 }
 
+/* 
+ * dead
+ * ----------------------------
+ *	A routine for the dead_checker.
+ *	It will checks if any philo decided to die.
+ */
 void	*dead(void	*arg)
 {
 	pthread_t	id;
@@ -30,6 +42,12 @@ void	*dead(void	*arg)
 	return (NULL);
 }
 
+/* 
+ * philo_sleep
+ * ----------------------------
+ *	Calculate the time that a philo has to sleep
+ *	and puts the philo to spleep
+ */
 void	philo_sleep(t_philo *philo)
 {
 	time_t	sleeping;
@@ -41,6 +59,14 @@ void	philo_sleep(t_philo *philo)
 	}
 }
 
+/* 
+ * one_and_only
+ * ----------------------------
+ *	That function execcutes if there is only one philosopher.
+ *	Philo takes one fork (spoiler: there is only one) and is not
+ *	able to eat, so philo go to sleep and unfortunateli (or not) philo
+ *	die. RIP. 
+ */
 void	*one_and_only(void	*arg)
 {
 	t_philo	*philo;
