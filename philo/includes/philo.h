@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 18:48:21 by victofer          #+#    #+#             */
-/*   Updated: 2023/04/04 11:17:36 by victofer         ###   ########.fr       */
+/*   Updated: 2023/04/04 12:00:48 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,21 @@
 # include <stdlib.h>
 # include <sys/time.h>
 
+//	C H E C K S
+
+int			number_args_checker(int cant);
+int			args_format_checker(int cant, char **args);
+int			input_checker(int cant, char **args);
+void		helper(void);
+
+//	E R R O R O S 
+
+void		ft_putchar_fd(char c, int fd);
+void		ft_putstr_fd(char *s, int fd);
+int			print_error_msg(char *error, char *details);
+void		write_status(t_philo *philo, char *status);
+void		print_status(t_philo *philo, char *status);
+
 //	I N I T 
 
 long long	ft_atoi(const char *str);
@@ -32,8 +47,6 @@ time_t		get_timestamp_ms(void);
 
 int			start_philosophers(t_table	*table);
 void		stop_philosophers(t_table	*table);
-void		print_status(t_philo *philos, char *status);
-int			only_one_philo(t_table *table);
 int			is_simulation_stop(t_table *table);
 
 //	R O U T I N E S 
@@ -45,26 +58,6 @@ void		philo_wait_time(t_table *table, time_t wait_time);
 void		eat_sleep_routine(t_philo *philo);
 void		think_routine(t_philo *philo);
 
-
-
-//	C H E C K S
-
-int			number_args_checker(int cant);
-int			args_format_checker(int cant, char **args);
-int			input_checker(int cant, char **args);
-void		helper(void);
-
-
-//	E R R O R O S 
-
-void		ft_putchar_fd(char c, int fd);
-void		ft_putstr_fd(char *s, int fd);
-int			print_error_msg(char *error, char *details);
-void		write_status(t_philo *philo, char *status);
-void		print_status(t_philo *philo, char *status);
-
-
-
 //	F R E E   S T U F F
 
 void		free_structs(t_table *table);
@@ -73,5 +66,4 @@ void		mutex_destroyer(t_table *table);
 //	T E S T I N G   S T U F F    ( D E L E TE ) 
 
 void		leaks(void);
-
 #endif
