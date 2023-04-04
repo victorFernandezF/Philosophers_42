@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 10:56:14 by victofer          #+#    #+#             */
-/*   Updated: 2023/04/04 10:20:12 by victofer         ###   ########.fr       */
+/*   Updated: 2023/04/04 11:18:32 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,15 +32,13 @@ void	*general(void	*arg)
 		return (NULL);
 	if (philo->table->nb_philo == 1)
 		one_and_only(philo);
-	//else if (philo->id % 2 == 0)
-		// go to think to avoid deathlock.
-	/*while (is_simulation_stop(philo->table) == FALSE)
+	else if (philo->id % 2 == 0)
+		think_routine(philo);
+	while (is_simulation_stop(philo->table) == FALSE)
 	{
-		// eat
-		// sleep
-		// think
+		eat_sleep_routine(philo);
+		think_routine(philo);
 	}
-	*/
 	return (NULL);
 }
 

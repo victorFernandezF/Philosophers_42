@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Victofer <victofer@student.42malaga.com>   +#+  +:+       +#+        */
+/*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 18:48:21 by victofer          #+#    #+#             */
-/*   Updated: 2023/04/03 17:35:38 by Victofer         ###   ########.fr       */
+/*   Updated: 2023/04/04 11:17:36 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,18 @@ int			start_philosophers(t_table	*table);
 void		stop_philosophers(t_table	*table);
 void		print_status(t_philo *philos, char *status);
 int			only_one_philo(t_table *table);
-int	        is_simulation_stop(t_table *table);
+int			is_simulation_stop(t_table *table);
 
 //	R O U T I N E S 
 
 void		*general(void	*arg);
 void		*dead(void	*arg);
 void		*one_and_only(void	*arg);
-void	    philo_wait_time(t_table *table, time_t wait_time);
+void		philo_wait_time(t_table *table, time_t wait_time);
+void		eat_sleep_routine(t_philo *philo);
+void		think_routine(t_philo *philo);
+
+
 
 //	C H E C K S
 
@@ -56,6 +60,10 @@ void		helper(void);
 void		ft_putchar_fd(char c, int fd);
 void		ft_putstr_fd(char *s, int fd);
 int			print_error_msg(char *error, char *details);
+void		write_status(t_philo *philo, char *status);
+void		print_status(t_philo *philo, char *status);
+
+
 
 //	F R E E   S T U F F
 
