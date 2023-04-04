@@ -6,7 +6,7 @@
 #    By: victofer <victofer@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/15 18:07:00 by victofer          #+#    #+#              #
-#    Updated: 2023/04/04 10:54:57 by victofer         ###   ########.fr        #
+#    Updated: 2023/04/04 11:50:51 by victofer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,14 +24,14 @@ SRC 	= 	src/main.c \
 			structs_management/init_structs.c \
 			threads_mutex/mutex_destroyer.c \
 			threads_mutex/thread.c \
-			threads_mutex/routines.c \
-			threads_mutex/more_routines.c \
+			routines/routines.c \
+			routines/more_routines.c \
 			status_output/output.c \
 			
 OBJS		= $(SRC:.c=.o)
 
 # T E X T   S T U F F
-G = \033[0;92m
+G = \033[0;92mmake 
 R = \033[0;31m
 B = \033[0;96m	
 Y = \033[0;33m
