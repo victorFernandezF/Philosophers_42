@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Victofer <victofer@student.42malaga.com>   +#+  +:+       +#+        */
+/*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 18:49:04 by victofer          #+#    #+#             */
-/*   Updated: 2023/04/03 17:02:21 by Victofer         ###   ########.fr       */
+/*   Updated: 2023/04/04 12:14:11 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,13 @@
 
 // -------------- C O L O R S ------------------
 
-# define RED  "\x1B[31m"
-# define GREEN  "\x1B[32m"
-# define BG  "\x1B[92m"
-# define YELLOW  "\x1B[33m"
-# define BLUE  "\x1B[36m"	
-# define W  "\x1B[37m"
-# define BY  "\x1B[93m"
+# define R	"\x1B[31m"
+# define G	"\x1B[32m"
+# define BG	"\x1B[92m"
+# define Y	"\x1B[33m"
+# define B	"\x1B[36m"	
+# define W	"\x1B[37m"
+# define BY	"\x1B[93m"
 
 //   S T R U C T U R E S
 
