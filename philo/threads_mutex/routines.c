@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   routines.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Victofer <victofer@student.42malaga.com>   +#+  +:+       +#+        */
+/*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 10:56:14 by victofer          #+#    #+#             */
-/*   Updated: 2023/04/03 18:14:58 by Victofer         ###   ########.fr       */
+/*   Updated: 2023/04/04 10:20:12 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	*general(void	*arg)
 		return (NULL);
 	if (philo->table->nb_philo == 1)
 		one_and_only(philo);
-	else if (philo->id % 2 == 0)
+	//else if (philo->id % 2 == 0)
 		// go to think to avoid deathlock.
 	/*while (is_simulation_stop(philo->table) == FALSE)
 	{
@@ -55,7 +55,7 @@ void	*dead(void	*arg)
 	pthread_t	id;
 
 	id = (pthread_t)arg;
-	printf("%ld", id);
+	//printf("%lld", id);
 	return (NULL);
 }
 

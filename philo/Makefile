@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: Victofer <victofer@student.42malaga.com>   +#+  +:+       +#+         #
+#    By: victofer <victofer@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/15 18:07:00 by victofer          #+#    #+#              #
-#    Updated: 2023/04/03 18:48:34 by Victofer         ###   ########.fr        #
+#    Updated: 2023/04/04 10:54:57 by victofer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
