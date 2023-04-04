@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 18:49:04 by victofer          #+#    #+#             */
-/*   Updated: 2023/04/04 12:14:11 by victofer         ###   ########.fr       */
+/*   Updated: 2023/04/04 12:36:25 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@
 # define B	"\x1B[36m"	
 # define W	"\x1B[37m"
 # define BY	"\x1B[93m"
+# define BM	"\x1B[95m"
 
 //   S T R U C T U R E S
 
