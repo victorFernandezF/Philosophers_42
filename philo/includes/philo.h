@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 18:48:21 by victofer          #+#    #+#             */
-/*   Updated: 2023/04/04 12:12:04 by victofer         ###   ########.fr       */
+/*   Updated: 2023/04/04 12:12:58 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ void		helper(void);
 void		ft_putchar_fd(char c, int fd);
 void		ft_putstr_fd(char *s, int fd);
 int			print_error_msg(char *error, char *details);
+
+//	O U T P U T
 void		write_status(t_philo *philo, char *status);
 void		print_status(t_philo *philo, char *status);
 
