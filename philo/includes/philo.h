@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 18:48:21 by victofer          #+#    #+#             */
-/*   Updated: 2023/04/04 12:00:48 by victofer         ###   ########.fr       */
+/*   Updated: 2023/04/04 12:12:04 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ time_t		get_timestamp_ms(void);
 //	S I M U L A T I O N
 
 int			start_philosophers(t_table	*table);
-void		stop_philosophers(t_table	*table);
 int			is_simulation_stop(t_table *table);
+void		stop_philosophers(t_table	*table);
 
 //	R O U T I N E S 
 

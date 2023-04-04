@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   thread.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Victofer <victofer@student.42malaga.com>   +#+  +:+       +#+        */
+/*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 18:43:43 by victofer          #+#    #+#             */
-/*   Updated: 2023/04/03 17:22:50 by Victofer         ###   ########.fr       */
+/*   Updated: 2023/04/04 12:06:43 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,14 @@ int	start_philosophers(t_table	*table)
 	return (1);
 }
 
+/* 
+ * is_simulation_stop
+ * ----------------------------
+ *  Returns TRUE (1) if simulation is over and FALSE (0)
+ * 	if not.
+ * 	 
+ *	tabe: struct with general datas.
+ */
 int	is_simulation_stop(t_table *table)
 {
 	int	stop;
@@ -58,6 +66,15 @@ int	is_simulation_stop(t_table *table)
 	return (stop);
 }
 
+/* 
+ * stop_philosophers
+ * ----------------------------
+ *  Wait till all threads finish their stuff.
+ * 	Destroys mutexes and frees memory.
+ *	Now program is ready to finish correctly.
+ * 
+ *	tabe: struct with general datas.
+ */
 void	stop_philosophers(t_table	*table)
 {
 	int	i;
