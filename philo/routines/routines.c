@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 10:56:14 by victofer          #+#    #+#             */
-/*   Updated: 2023/04/04 12:23:30 by victofer         ###   ########.fr       */
+/*   Updated: 2023/04/05 09:58:57 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	*dead(void	*arg)
 	pthread_t	id;
 
 	id = (pthread_t)arg;
-	//printf("%lld", id);
+	printf("%lld", id);
 	return (NULL);
 }
 

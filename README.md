@@ -36,8 +36,6 @@ git clone https://github.com/victorFernandezF/Philosophers_42.git
 | Applicative  |   Imperative programming  |
 |              |          Graphics         |
 
-
-
 ### ESTADO
 
 | Estado del proyecto | En proceso          |

@@ -6,12 +6,11 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 13:08:51 by victofer          #+#    #+#             */
-/*   Updated: 2023/04/04 12:38:04 by victofer         ###   ########.fr       */
+/*   Updated: 2023/04/05 10:00:18 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo.h"
-
 
 static void	param_general_info(void)
 {
