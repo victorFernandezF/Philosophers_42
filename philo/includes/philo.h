@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 18:48:21 by victofer          #+#    #+#             */
-/*   Updated: 2023/04/05 12:32:08 by victofer         ###   ########.fr       */
+/*   Updated: 2023/04/05 13:25:19 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@
 //	C H E C K S
 
 int			number_args_checker(int cant);
+int			is_digit(char c);
+int			int_limits_checker(int cant, char **args);
 int			args_format_checker(int cant, char **args);
 int			input_checker(int cant, char **args);
 void		helper(void);

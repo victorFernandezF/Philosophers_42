@@ -6,11 +6,21 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 19:03:50 by victofer          #+#    #+#             */
-/*   Updated: 2023/03/30 10:14:25 by victofer         ###   ########.fr       */
+/*   Updated: 2023/04/05 13:25:06 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo.h"
+
+/* 
+ * is_digit
+ * ----------------------------
+ *	Returns 1 if char is a digit and 0 of not.
+ */
+int	is_digit(char c)
+{
+	return ((c >= '0' && c <= '9') || c == '-' || c == '+');
+}
 
 static int	ft_is_sign(char n)
 {

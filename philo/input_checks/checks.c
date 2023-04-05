@@ -6,21 +6,11 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 11:39:58 by victofer          #+#    #+#             */
-/*   Updated: 2023/04/03 13:33:23 by victofer         ###   ########.fr       */
+/*   Updated: 2023/04/05 13:26:18 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo.h"
-
-/* 
- * is_digit
- * ----------------------------
- *	Returns 1 if char is a digit and 0 of not.
- */
-static int	is_digit(char c)
-{
-	return ((c >= '0' && c <= '9') || c == '-' || c == '+');
-}
 
 /* 
  * args_neg_checker
@@ -101,6 +91,23 @@ int	number_args_checker(int cant)
 	return (0);
 }
 
+int	int_limits_checker(int cant, char **args)
+{
+	int	i;
+
+	i = -1;
+	while (++i <= cant)
+	{
+		if (ft_atoi(args[i]) > MAXINT || ft_atoi(args[i]) < MININT)
+		{
+			print_error_msg(INPUT_ERROR,
+				"One or more numbers are over the integer limits.");
+			return (-1);
+		}
+	}
+	return (0);
+}
+
 /* 
  * input_checker
  * ----------------------------
@@ -121,6 +128,8 @@ int	input_checker(int cant, char **args)
 		return (-1);
 	}		
 	if (number_args_checker(cant) == -1)
+		return (-1);
+	if (int_limits_checker(cant, args) == -1)
 		return (-1);
 	if (args_format_checker(cant, args) == -1)
 		return (-1);

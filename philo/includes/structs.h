@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 18:49:04 by victofer          #+#    #+#             */
-/*   Updated: 2023/04/05 12:24:15 by victofer         ###   ########.fr       */
+/*   Updated: 2023/04/05 13:20:12 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 //	M A C R O S
 # define TRUE 1
 # define FALSE 0
+# define MAXINT 2147483647
+# define MININT -2147483648
 # define INPUT_ERROR "BAD INPUT"
 # define MALLOC_ERROR "MEMORY ERROR"
 # define THREAD_ERROR "THREAD ERROR."
