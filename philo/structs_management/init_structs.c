@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 18:39:40 by victofer          #+#    #+#             */
-/*   Updated: 2023/03/30 10:55:43 by victofer         ###   ########.fr       */
+/*   Updated: 2023/04/05 11:18:50 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,5 +150,6 @@ t_table	*init_table(t_table *table, int argc, char **argv)
 		free_structs(table);
 		return (NULL);
 	}
+	table->simulation_stop = 0;
 	return (table);
 }

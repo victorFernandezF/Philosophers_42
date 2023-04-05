@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 18:43:43 by victofer          #+#    #+#             */
-/*   Updated: 2023/04/05 10:19:56 by victofer         ###   ########.fr       */
+/*   Updated: 2023/04/05 12:29:50 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	start_philosophers(t_table	*table)
 	int	i;
 
 	i = -1;
-	table->time_start = get_timestamp_ms();
+	table->time_start = get_timestamp_ms() + (table->nb_philo * 2 * 10);
 	while (++i < table->nb_philo)
 	{	
 		if (pthread_create(&table->philos[i]->thid, NULL, &general
@@ -35,7 +35,7 @@ int	start_philosophers(t_table	*table)
 			return (0);
 		}
 	}
-	if (table->nb_philo > 1)
+	if (table->nb_philo > 100)
 	{
 		if (pthread_create(&table->dead_checker, NULL, &dead, table) != 0)
 		{
@@ -44,26 +44,6 @@ int	start_philosophers(t_table	*table)
 		}
 	}
 	return (1);
-}
-
-/* 
- * is_simulation_stop
- * ----------------------------
- *  Returns TRUE (1) if simulation is over and FALSE (0)
- * 	if not.
- * 	 
- *	tabe: struct with general datas.
- */
-int	is_simulation_stop(t_table *table)
-{
-	int	stop;
-
-	stop = FALSE;
-	pthread_mutex_lock(&table->sim_stop_lock);
-	if (table->simulation_stop == TRUE)
-		stop = TRUE;
-	pthread_mutex_unlock(&table->sim_stop_lock);
-	return (stop);
 }
 
 /* 
@@ -82,7 +62,7 @@ void	stop_philosophers(t_table	*table)
 	i = -1;
 	while (++i < table->nb_philo)
 		pthread_join(table->philos[i]->thid, NULL);
-	if (table->nb_philo > 1)
+	if (table->nb_philo > 100)
 		pthread_join(table->dead_checker, NULL);
 	mutex_destroyer(table);
 	free_structs(table);
