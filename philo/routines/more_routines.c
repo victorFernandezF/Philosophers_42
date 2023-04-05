@@ -30,7 +30,7 @@ void	eat_sleep_routine(t_philo *philo)
 	philo->last_meal = get_timestamp_ms();
 	pthread_mutex_unlock(&philo->meal_lock);
 	philo_wait_time(philo->table, philo->table->time_to_eat);
-	if (is_simulation_over(philo->table) == 0)
+	if (is_simulation_over(philo->table) == FALSE)
 	{
 		pthread_mutex_lock(&philo->meal_lock);
 		philo->times_ate += 1;
@@ -50,7 +50,7 @@ void	eat_sleep_routine(t_philo *philo)
  *	
  *	philo
  */
-void	think_routine(t_philo *philo)
+void	think_routine(t_philo *philo, int hide)
 {
 	time_t	time_think;
 
@@ -61,10 +61,11 @@ void	think_routine(t_philo *philo)
 	pthread_mutex_unlock(&philo->meal_lock);
 	if (time_think < 0)
 		time_think = 0;
-	if (time_think == 0)
+	if (time_think == 0 && hide == 1)
 		time_think = 1;
 	if (time_think > 600)
 		time_think = 200;
-	write_status(philo, 0, "is thinking");
+	if (hide == 0)
+		write_status(philo, 0, "is thinking");
 	philo_wait_time(philo->table, time_think);
 }

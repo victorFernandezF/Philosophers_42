@@ -32,34 +32,18 @@ void	*general(void	*arg)
 	if (philo->table->time_to_die == 0)
 		return (NULL);
 	if (philo->table->nb_philo == 1)
-		return (one_and_only(philo), NULL);
+	{
+		one_and_only(philo);
+		return (NULL);
+	}
 	else if (philo->id % 2)
-		think_routine(philo);
+		think_routine(philo, TRUE);
 	while (is_simulation_over(philo->table) == FALSE)
 	{
 		eat_sleep_routine(philo);
-		think_routine(philo);
+		think_routine(philo, FALSE);
 	}
 	return (NULL);
-}
-
-/* 
- * philo_sleep
- * ----------------------------
- *	Calculate the time that a philo has to sleep
- *	and puts philo to spleep
- */
-void	philo_wait_time(t_table *table, time_t wait_time)
-{
-	time_t	wait;
-
-	wait = get_timestamp_ms() + wait_time;
-	while (get_timestamp_ms() < wait)
-	{
-		if (is_simulation_over(table))
-			break ;
-		usleep(100);
-	}
 }
 
 /* 
@@ -70,11 +54,8 @@ void	philo_wait_time(t_table *table, time_t wait_time)
  *	able to eat, so philo go to sleep and unfortunately (or not) philo
  *	die. RIP. 
  */
-void	*one_and_only(void	*arg)
+void	*one_and_only(t_philo *philo)
 {
-	t_philo	*philo;
-
-	philo = (t_philo *)arg;
 	pthread_mutex_lock(&philo->table->fork_locks[philo->forks[0]]);
 	write_status(philo, 0, "has taken a fork");
 	philo_wait_time(philo->table, philo->table->time_to_die);

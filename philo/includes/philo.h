@@ -57,10 +57,10 @@ void		stop_philosophers(t_table	*table);
 
 void		*general(void	*arg);
 void		*dead(void	*arg);
-void		*one_and_only(void	*arg);
-void		philo_wait_time(t_table *table, time_t wait_time);
+void		*one_and_only(t_philo *philo);
+void	    philo_wait_time(t_table *table, time_t sleep_time);
 void		eat_sleep_routine(t_philo *philo);
-void		think_routine(t_philo *philo);
+void		think_routine(t_philo *philo, int hide);
 void		sim_stop_flag(t_table *table, int state);
 void		*dead(void *arg);
 void		delay(t_table *table);
