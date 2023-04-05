@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 18:43:43 by victofer          #+#    #+#             */
-/*   Updated: 2023/04/05 12:29:50 by victofer         ###   ########.fr       */
+/*   Updated: 2023/04/05 12:38:14 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	start_philosophers(t_table	*table)
 			return (0);
 		}
 	}
-	if (table->nb_philo > 100)
+	if (table->nb_philo > 1)
 	{
 		if (pthread_create(&table->dead_checker, NULL, &dead, table) != 0)
 		{
@@ -62,7 +62,7 @@ void	stop_philosophers(t_table	*table)
 	i = -1;
 	while (++i < table->nb_philo)
 		pthread_join(table->philos[i]->thid, NULL);
-	if (table->nb_philo > 100)
+	if (table->nb_philo > 1)
 		pthread_join(table->dead_checker, NULL);
 	mutex_destroyer(table);
 	free_structs(table);
