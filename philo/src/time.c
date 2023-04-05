@@ -30,3 +30,22 @@ void	delay(t_table *table)
 	while (get_timestamp_ms() < table->time_start)
 		continue ;
 }
+
+/* 
+ * philo_sleep
+ * ----------------------------
+ *	Calculate the time that a philo has to sleep
+ *	and puts philo to spleep
+ */
+void	philo_wait_time(t_table *table, time_t sleep_time)
+{
+	time_t	wake_up;
+
+	wake_up = get_timestamp_ms() + sleep_time;
+	while (get_timestamp_ms() < wake_up)
+	{
+		if (is_simulation_over(table))
+			break ;
+		usleep(100);
+	}
+}
