@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 10:56:14 by victofer          #+#    #+#             */
-/*   Updated: 2023/04/05 10:58:41 by victofer         ###   ########.fr       */
+/*   Updated: 2023/04/05 12:31:23 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,14 @@ void	*general(void	*arg)
 	pthread_mutex_lock(&philo->meal_lock);
 	philo->last_meal = philo->table->time_start;
 	pthread_mutex_unlock(&philo->meal_lock);
+	delay(philo->table);
 	if (philo->table->time_to_die == 0)
 		return (NULL);
 	if (philo->table->nb_philo == 1)
 		return (one_and_only(philo), NULL);
-	else if (philo->id % 2 == 0)
+	else if (philo->id % 2)
 		think_routine(philo);
-	while (is_simulation_stop(philo->table) == FALSE)
+	while (is_simulation_over(philo->table) == FALSE)
 	{
 		eat_sleep_routine(philo);
 		think_routine(philo);
@@ -55,7 +56,7 @@ void	philo_wait_time(t_table *table, time_t wait_time)
 	wait = get_timestamp_ms() + wait_time;
 	while (get_timestamp_ms() < wait)
 	{
-		if (is_simulation_stop(table))
+		if (is_simulation_over(table))
 			break ;
 		usleep(100);
 	}
@@ -75,9 +76,9 @@ void	*one_and_only(void	*arg)
 
 	philo = (t_philo *)arg;
 	pthread_mutex_lock(&philo->table->fork_locks[philo->forks[0]]);
-	write_status(philo, "has taken a fork");
+	write_status(philo, 0, "has taken a fork");
 	philo_wait_time(philo->table, philo->table->time_to_die);
-	write_status(philo, "died");
+	write_status(philo, 0, "died");
 	pthread_mutex_unlock(&philo->table->fork_locks[philo->forks[0]]);
 	return (NULL);
 }

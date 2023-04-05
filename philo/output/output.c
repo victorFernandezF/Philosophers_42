@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 18:45:04 by Victofer          #+#    #+#             */
-/*   Updated: 2023/04/04 12:11:53 by victofer         ###   ########.fr       */
+/*   Updated: 2023/04/05 12:32:33 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,14 @@ void	print_status(t_philo *philo, char *status)
  *	philo: struct with general datas.
  *	status: status to print: is eating, is sleeping, died...
  */
-void	write_status(t_philo *philo, char *status)
+void	write_status(t_philo *philo, int dead, char *status)
 {
 	pthread_mutex_lock(&philo->table->write_lock);
+	if (is_simulation_over(philo->table) == 1 && dead == 0)
+	{
+		pthread_mutex_unlock(&philo->table->write_lock);
+		return ;
+	}
 	print_status(philo, status);
 	pthread_mutex_unlock(&philo->table->write_lock);
 }

@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 18:49:04 by victofer          #+#    #+#             */
-/*   Updated: 2023/04/04 12:36:25 by victofer         ###   ########.fr       */
+/*   Updated: 2023/04/05 12:24:15 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,12 @@ typedef struct s_table
 {
 	time_t			time_start;
 	int				nb_philo;
+	pthread_t		dead_checker;
 	time_t			time_to_die;
 	time_t			time_to_eat;
 	time_t			time_to_sleep;
 	int				times_x_eat;
 	int				simulation_stop;
-	pthread_t		dead_checker;
 	pthread_mutex_t	sim_stop_lock;
 	pthread_mutex_t	write_lock;
 	pthread_mutex_t	*fork_locks;
