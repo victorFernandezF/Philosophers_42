@@ -131,9 +131,8 @@ t_table	*init_table(t_table *table, int argc, char **argv)
 	if (!table)
 		return (print_error_msg(MALLOC_ERROR, NULL), NULL);
 	table->nb_philo = ft_atoi(argv[1]);
-	table->time_to_die = ft_atoi(argv[1]);
-	table->time_to_eat = ft_atoi(argv[2]);
-	table->time_to_sleep = ft_atoi(argv[3]);
+	table->time_to_die = ft_atoi(argv[2]);
+	table->time_to_eat = ft_atoi(argv[3]);
 	table->time_to_sleep = ft_atoi(argv[4]);
 	table->times_x_eat = -1;
 	table->simulation_stop = FALSE;
