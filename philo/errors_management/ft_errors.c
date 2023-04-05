@@ -6,7 +6,7 @@
 /*   By: Victofer <victofer@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 10:22:45 by victofer          #+#    #+#             */
-/*   Updated: 2023/04/03 18:44:37 by Victofer         ###   ########.fr       */
+/*   Updated: 2023/04/05 18:23:34 by Victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,8 @@ void	ft_putstr_fd(char *s, int fd)
 /* 
  * ft_error_and_exit
  * ----------------------------
- *  Writes 'Error' followed by the error message.
+ *  Writes 'Error' followed by the error message and optional
+ * 	details of the error.
  * 
  *	error: error message to be shown.
  *	details: a string with some details of the error. this
