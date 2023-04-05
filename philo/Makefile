@@ -6,12 +6,12 @@
 #    By: victofer <victofer@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/15 18:07:00 by victofer          #+#    #+#              #
-#    Updated: 2023/04/05 10:36:44 by victofer         ###   ########.fr        #
+#    Updated: 2023/04/05 12:28:54 by victofer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= 	philo
-CFLAGS 	= 	-Wall -Wextra -Werror -pthread -fsanitize=thread -g
+CFLAGS 	= 	-Wall -Wextra -Werror -pthread #-fsanitize=thread -g
 
 SRC 	= 	src/main.c \
 			src/ft_atoi.c \
@@ -27,7 +27,7 @@ SRC 	= 	src/main.c \
 			routines/routines.c \
 			routines/more_routines.c \
 			routines/dead_checker.c \
-			status_output/output.c \
+			output/output.c \
 			
 OBJS		= $(SRC:.c=.o)
 
