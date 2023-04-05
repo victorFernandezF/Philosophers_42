@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 11:39:58 by victofer          #+#    #+#             */
-/*   Updated: 2023/04/05 13:26:18 by victofer         ###   ########.fr       */
+/*   Updated: 2023/04/05 13:31:09 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,18 @@ int	number_args_checker(int cant)
 	return (0);
 }
 
+/* 
+ * int_limits_checker
+ * ----------------------------
+ *	Checks if the number of given arguments is not bigger than
+ *	int positive limit and is not smaller than int negative limit.
+ *		
+ * 
+ *	cant: number of arguments.
+ *	args: array with the arguments.
+ *	
+ *	Return: 0 if everything is fine and -1 if something were wrong.	
+ */
 int	int_limits_checker(int cant, char **args)
 {
 	int	i;
