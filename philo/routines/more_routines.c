@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 18:33:43 by Victofer          #+#    #+#             */
-/*   Updated: 2023/04/04 11:55:19 by victofer         ###   ########.fr       */
+/*   Updated: 2023/04/05 10:52:20 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@
  */
 void	eat_sleep_routine(t_philo *philo)
 {
-	pthread_mutex_lock(&philo->table->fork_locks[0]);
+	pthread_mutex_lock(&philo->table->fork_locks[philo->forks[0]]);
 	write_status(philo, "has taken a fork");
-	pthread_mutex_lock(&philo->table->fork_locks[1]);
+	pthread_mutex_lock(&philo->table->fork_locks[philo->forks[1]]);
 	write_status(philo, "has taken a fork");
 	write_status(philo, "is eating");
 	pthread_mutex_lock(&philo->meal_lock);
@@ -37,8 +37,8 @@ void	eat_sleep_routine(t_philo *philo)
 		pthread_mutex_unlock(&philo->meal_lock);
 	}
 	write_status(philo, "is sleeping");
-	pthread_mutex_unlock(&philo->table->fork_locks[0]);
-	pthread_mutex_unlock(&philo->table->fork_locks[1]);
+	pthread_mutex_unlock(&philo->table->fork_locks[philo->forks[1]]);
+	pthread_mutex_unlock(&philo->table->fork_locks[philo->forks[1]]);
 	philo_wait_time(philo->table, philo->table->time_to_sleep);
 }
 

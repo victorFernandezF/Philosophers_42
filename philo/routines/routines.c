@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 10:56:14 by victofer          #+#    #+#             */
-/*   Updated: 2023/04/05 09:58:57 by victofer         ###   ########.fr       */
+/*   Updated: 2023/04/05 10:58:41 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	*general(void	*arg)
 	if (philo->table->time_to_die == 0)
 		return (NULL);
 	if (philo->table->nb_philo == 1)
-		one_and_only(philo);
+		return (one_and_only(philo), NULL);
 	else if (philo->id % 2 == 0)
 		think_routine(philo);
 	while (is_simulation_stop(philo->table) == FALSE)
@@ -39,21 +39,6 @@ void	*general(void	*arg)
 		eat_sleep_routine(philo);
 		think_routine(philo);
 	}
-	return (NULL);
-}
-
-/* 
- * dead
- * ----------------------------
- *	A routine for the dead_checker.
- *	It will checks if any philo decided to die.
- */
-void	*dead(void	*arg)
-{
-	pthread_t	id;
-
-	id = (pthread_t)arg;
-	printf("%lld", id);
 	return (NULL);
 }
 
@@ -90,9 +75,9 @@ void	*one_and_only(void	*arg)
 
 	philo = (t_philo *)arg;
 	pthread_mutex_lock(&philo->table->fork_locks[philo->forks[0]]);
-	print_status(philo, "has taken a fork");
+	write_status(philo, "has taken a fork");
 	philo_wait_time(philo->table, philo->table->time_to_die);
-	print_status(philo, "died");
+	write_status(philo, "died");
 	pthread_mutex_unlock(&philo->table->fork_locks[philo->forks[0]]);
 	return (NULL);
 }

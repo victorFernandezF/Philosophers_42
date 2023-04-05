@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 18:48:21 by victofer          #+#    #+#             */
-/*   Updated: 2023/04/04 12:12:58 by victofer         ###   ########.fr       */
+/*   Updated: 2023/04/05 10:20:01 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ void		*one_and_only(void	*arg);
 void		philo_wait_time(t_table *table, time_t wait_time);
 void		eat_sleep_routine(t_philo *philo);
 void		think_routine(t_philo *philo);
+void		sim_stop_flag(t_table *table, int state);
+void		*dead(void *arg);
 
 //	F R E E   S T U F F
 
