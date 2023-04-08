@@ -21,14 +21,14 @@ static pthread_mutex_t	*init_forks(t_table *table)
 	forks = malloc(sizeof(pthread_mutex_t) * table->nb_philo);
 	if (!forks)
 	{
-		print_error_msg(MALLOC_ERROR, "fail allocating forks");
+		print_error_msg(MALLOC_ERROR, "fail allocating forks", 0);
 		return (0);
 	}
 	while (i < table->nb_philo)
 	{
 		if (pthread_mutex_init(&forks[i], 0) != 0)
 		{
-			print_error_msg(MUTEX_ERROR, "fail to create mutex: forks");
+			print_error_msg(MUTEX_ERROR, "fail to create mutex: forks", 0);
 			free(forks);
 			return (NULL);
 		}
@@ -72,16 +72,16 @@ t_philo	**init_philos(t_table *table)
 
 	philos = malloc(sizeof(t_philo) * table->nb_philo);
 	if (!philos)
-		return (print_error_msg(MALLOC_ERROR, "fail to allocate philos"), NULL);
+		return (print_error_msg(MALLOC_ERROR, "fail to allocate philos", 0), NULL);
 	i = -1;
 	while (++i < table->nb_philo)
 	{
 		philos[i] = malloc(sizeof(t_philo) * 1);
 		if (!philos[i])
-			return (print_error_msg(MALLOC_ERROR, "fail alloc. philos"), NULL);
+			return (print_error_msg(MALLOC_ERROR, "fail alloc. philos", 0), NULL);
 		if (pthread_mutex_init(&philos[i]->meal_lock, NULL) != 0)
 		{
-			print_error_msg(MUTEX_ERROR, "fail to create mutex: meal_lock");
+			print_error_msg(MUTEX_ERROR, "fail to create mutex: meal_lock", 0);
 			return (NULL);
 		}
 		philos[i]->id = i;
@@ -107,12 +107,12 @@ static int	init_mutexes(t_table *table)
 		return (FALSE);
 	if (pthread_mutex_init(&table->sim_stop_lock, 0) != 0)
 	{
-		print_error_msg(MUTEX_ERROR, "fail to create mutex: sim_stop_lock");
+		print_error_msg(MUTEX_ERROR, "fail to create mutex: sim_stop_lock", 0);
 		return (FALSE);
 	}
 	if (pthread_mutex_init(&table->write_lock, NULL) != 0)
 	{
-		print_error_msg(MUTEX_ERROR, "fail to create mutex: write_lock");
+		print_error_msg(MUTEX_ERROR, "fail to create mutex: write_lock", 0);
 		return (FALSE);
 	}
 	return (TRUE);
@@ -129,7 +129,7 @@ t_table	*init_table(t_table *table, int argc, char **argv)
 {
 	table = malloc(sizeof(t_table));
 	if (!table)
-		return (print_error_msg(MALLOC_ERROR, NULL), NULL);
+		return (print_error_msg(MALLOC_ERROR, NULL, 0), NULL);
 	table->nb_philo = ft_atoi(argv[1]);
 	table->time_to_die = ft_atoi(argv[2]);
 	table->time_to_eat = ft_atoi(argv[3]);
@@ -141,7 +141,7 @@ t_table	*init_table(t_table *table, int argc, char **argv)
 	table->philos = init_philos(table);
 	if (!table->philos)
 	{
-		print_error_msg(THREAD_ERROR, NULL);
+		print_error_msg(THREAD_ERROR, NULL, 0);
 		return (NULL);
 	}
 	if (!init_mutexes(table))

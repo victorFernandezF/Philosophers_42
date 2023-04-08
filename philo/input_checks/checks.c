@@ -28,14 +28,14 @@ int	args_neg_checker(int cant, char **args)
 	i = -1;
 	if (ft_atoi(args[1]) < 0)
 	{
-		print_error_msg(INPUT_ERROR, "Really? negative philosophers?");
+		print_error_msg(INPUT_ERROR, "Really? negative philosophers?", 1);
 		return (-1);
 	}
 	while (++i <= cant)
 	{
 		if (ft_atoi(args[i]) < 0)
 		{
-			print_error_msg(INPUT_ERROR, "Negatives numbers are not allowed");
+			print_error_msg(INPUT_ERROR, "Negatives numbers are not allowed", 1);
 			return (-1);
 		}
 	}
@@ -64,7 +64,7 @@ int	args_format_checker(int cant, char **args)
 		{
 			if (!is_digit(args[i][j]))
 			{
-				print_error_msg(INPUT_ERROR, "Arguments must be digits");
+				print_error_msg(INPUT_ERROR, "Arguments must be digits", 1);
 				return (-1);
 			}
 		}
@@ -84,8 +84,7 @@ int	number_args_checker(int cant)
 {
 	if (cant != 5 && cant != 4)
 	{
-		print_error_msg(INPUT_ERROR,
-			"This program acepts 4 or 5 arguments. \n\t\tType [-h] to get help");
+		print_error_msg(INPUT_ERROR, "This program acepts 4 or 5 arguments.", 1);
 		return (-1);
 	}
 	return (0);
@@ -113,7 +112,7 @@ int	int_limits_checker(int cant, char **args)
 		if (ft_atoi(args[i]) > MAXINT || ft_atoi(args[i]) < MININT)
 		{
 			print_error_msg(INPUT_ERROR,
-				"One or more numbers are over the integer limits.");
+				"One or more numbers are over the integer limits.", 1);
 			return (-1);
 		}
 	}

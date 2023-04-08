@@ -20,6 +20,7 @@ static void	param_general_info(void)
 	printf(BM"| * Number of parameters acepted: 4 or 5               |\n");
 	printf(BM"| * Only digits acepted                                |\n");
 	printf(BM"| * Not negatives numbers acepted                      |\n");
+	printf(BM"| * Not numbers over the integer limits acepted        |\n");
 	printf(BM"|                                                      |\n");
 	printf(BM"|        Example: ./philo 5 800 300 100                |\n");
 	printf(BM"--------------------------------------------------------\n");

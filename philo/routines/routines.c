@@ -13,12 +13,12 @@
 #include "../includes/philo.h"
 
 /* 
- * general
+ * general_routine
  * ----------------------------
  *  A general routine for every thread except dead_checker
  * 	This routine will call the rest depending on the situation.
  */
-void	*general(void	*arg)
+void	*general_routine(void	*arg)
 {
 	t_philo	*philo;
 

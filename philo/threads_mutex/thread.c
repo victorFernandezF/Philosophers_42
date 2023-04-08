@@ -28,10 +28,10 @@ int	start_philosophers(t_table	*table)
 	table->time_start = get_timestamp_ms() + (table->nb_philo * 2 * 10);
 	while (++i < table->nb_philo)
 	{	
-		if (pthread_create(&table->philos[i]->thid, NULL, &general
+		if (pthread_create(&table->philos[i]->thid, NULL, &general_routine
 				, table->philos[i]) != 0)
 		{
-			print_error_msg(THREAD_ERROR, "fail crating philo threads");
+			print_error_msg(THREAD_ERROR, "fail crating philo threads", 0);
 			return (0);
 		}
 	}
@@ -39,7 +39,7 @@ int	start_philosophers(t_table	*table)
 	{
 		if (pthread_create(&table->dead_checker, NULL, &dead, table) != 0)
 		{
-			print_error_msg(THREAD_ERROR, "fail creating dead_checker thread");
+			print_error_msg(THREAD_ERROR, "fail creating dead_checker thread", 0);
 			return (0);
 		}
 	}
