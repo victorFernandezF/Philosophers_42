@@ -33,7 +33,7 @@ void		helper(void);
 
 void		ft_putchar_fd(char c, int fd);
 void		ft_putstr_fd(char *s, int fd);
-int			print_error_msg(char *error, char *details);
+int			print_error_msg(char *error, char *details, int input_err);
 
 //	O U T P U T
 void		write_status(t_philo *philo, int dead, char *status);
@@ -55,7 +55,7 @@ void		stop_philosophers(t_table	*table);
 
 //	R O U T I N E S 
 
-void		*general(void	*arg);
+void		*general_routine(void *arg);
 void		*dead(void	*arg);
 void		*one_and_only(t_philo *philo);
 void	    philo_wait_time(t_table *table, time_t sleep_time);
