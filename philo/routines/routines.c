@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 10:56:14 by victofer          #+#    #+#             */
-/*   Updated: 2023/04/05 12:31:23 by victofer         ###   ########.fr       */
+/*   Updated: 2023/04/10 10:44:15 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,22 +23,22 @@ void	*general_routine(void	*arg)
 	t_philo	*philo;
 
 	philo = (t_philo *)arg;
-	if (philo->table->times_x_eat == 0)
+	if (philo->rules->times_x_eat == 0)
 		return (NULL);
 	pthread_mutex_lock(&philo->meal_lock);
-	philo->last_meal = philo->table->time_start;
+	philo->last_meal = philo->rules->time_start;
 	pthread_mutex_unlock(&philo->meal_lock);
-	delay(philo->table);
-	if (philo->table->time_to_die == 0)
+	delay(philo->rules);
+	if (philo->rules->time_to_die == 0)
 		return (NULL);
-	if (philo->table->nb_philo == 1)
+	if (philo->rules->nb_philo == 1)
 	{
 		one_and_only(philo);
 		return (NULL);
 	}
 	else if (philo->id % 2)
 		think_routine(philo, TRUE);
-	while (is_simulation_over(philo->table) == FALSE)
+	while (is_simulation_over(philo->rules) == FALSE)
 	{
 		eat_sleep_routine(philo);
 		think_routine(philo, FALSE);
@@ -56,10 +56,10 @@ void	*general_routine(void	*arg)
  */
 void	*one_and_only(t_philo *philo)
 {
-	pthread_mutex_lock(&philo->table->fork_locks[philo->forks[0]]);
+	pthread_mutex_lock(&philo->rules->fork_locks[philo->forks[0]]);
 	write_status(philo, 0, "has taken a fork");
-	philo_wait_time(philo->table, philo->table->time_to_die);
+	philo_wait_time(philo->rules, philo->rules->time_to_die);
 	write_status(philo, 0, "died");
-	pthread_mutex_unlock(&philo->table->fork_locks[philo->forks[0]]);
+	pthread_mutex_unlock(&philo->rules->fork_locks[philo->forks[0]]);
 	return (NULL);
 }

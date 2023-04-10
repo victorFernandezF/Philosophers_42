@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 18:20:43 by victofer          #+#    #+#             */
-/*   Updated: 2023/04/05 10:36:41 by victofer         ###   ########.fr       */
+/*   Updated: 2023/04/10 10:50:45 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,20 @@
 
 int	main(int argc, char **argv)
 {
-	t_table	*table;
+	t_rules	*rules;
 
-	//atexit(leaks);
-	table = NULL;
+	rules = NULL;
 	argc--;
 	if (input_checker(argc, argv) == -1)
 		return (-1);
-	table = init_table(table, argc, argv);
-	if (!table)
+	rules = init_rules(rules, argc, argv);
+	if (!rules)
 	{
-		free_structs(table);
+		free_structs(rules);
 		return (-1);
 	}
-	if (!start_philosophers(table))
+	if (!start_philosophers(rules))
 		return (-1);
-	stop_philosophers(table);
+	stop_philosophers(rules);
 	return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_errors.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Victofer <victofer@student.42malaga.com>   +#+  +:+       +#+        */
+/*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 10:22:45 by victofer          #+#    #+#             */
-/*   Updated: 2023/04/08 12:59:11 by Victofer         ###   ########.fr       */
+/*   Updated: 2023/04/10 10:38:10 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,16 @@
  *	details: a string with some details of the error. this
  *			argument can be NULL.	
  */
-int	print_error_msg(char *error, char *details, int input_err)
+void	*print_error_msg(char *error, char *details, int input_err)
 {
 	if (error == NULL)
 		error = GENERIC_ERROR;
-	printf("%sERROR: %s%s\n",R, error, W);
+	printf("%sERROR: %s%s\n", R, error, W);
 	if (details != NULL)
 	{
-		printf("%s\t%s%s\n",Y, details, W);
+		printf("%s\t%s%s\n", Y, details, W);
 		if (input_err)
-			printf("%s\t type philo -h to see a guide of acepted parameters %s\n\n", B, W);
+			printf("%s\t type philo -h to see a guide %s\n\n", B, W);
 	}
-	return (-1);
+	return (NULL);
 }

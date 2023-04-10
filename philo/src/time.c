@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 18:32:34 by victofer          #+#    #+#             */
-/*   Updated: 2023/04/05 11:02:19 by victofer         ###   ########.fr       */
+/*   Updated: 2023/04/10 10:46:13 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ time_t	get_timestamp_ms(void)
 	return ((cur.tv_sec * 1000) + (cur.tv_usec / 1000));
 }
 
-void	delay(t_table *table)
+void	delay(t_rules *rules)
 {
-	while (get_timestamp_ms() < table->time_start)
+	while (get_timestamp_ms() < rules->time_start)
 		continue ;
 }
 
@@ -37,14 +37,14 @@ void	delay(t_table *table)
  *	Calculate the time that a philo has to sleep
  *	and puts philo to spleep
  */
-void	philo_wait_time(t_table *table, time_t sleep_time)
+void	philo_wait_time(t_rules *rules, time_t sleep_time)
 {
 	time_t	wake_up;
 
 	wake_up = get_timestamp_ms() + sleep_time;
 	while (get_timestamp_ms() < wake_up)
 	{
-		if (is_simulation_over(table))
+		if (is_simulation_over(rules))
 			break ;
 		usleep(100);
 	}

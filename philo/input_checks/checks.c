@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 11:39:58 by victofer          #+#    #+#             */
-/*   Updated: 2023/04/05 13:31:09 by victofer         ###   ########.fr       */
+/*   Updated: 2023/04/10 10:40:09 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	args_neg_checker(int cant, char **args)
 	{
 		if (ft_atoi(args[i]) < 0)
 		{
-			print_error_msg(INPUT_ERROR, "Negatives numbers are not allowed", 1);
+			print_error_msg(INPUT_ERROR, "Negatives numbers not allowed", 1);
 			return (-1);
 		}
 	}
@@ -84,7 +84,7 @@ int	number_args_checker(int cant)
 {
 	if (cant != 5 && cant != 4)
 	{
-		print_error_msg(INPUT_ERROR, "This program acepts 4 or 5 arguments.", 1);
+		print_error_msg(INPUT_ERROR, "4 or 5 arguments acepted.", 1);
 		return (-1);
 	}
 	return (0);

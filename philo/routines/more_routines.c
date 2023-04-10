@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 18:33:43 by Victofer          #+#    #+#             */
-/*   Updated: 2023/04/05 12:31:46 by victofer         ###   ########.fr       */
+/*   Updated: 2023/04/10 10:43:58 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,25 +21,25 @@
  */
 void	eat_sleep_routine(t_philo *philo)
 {
-	pthread_mutex_lock(&philo->table->fork_locks[philo->forks[0]]);
+	pthread_mutex_lock(&philo->rules->fork_locks[philo->forks[0]]);
 	write_status(philo, 0, "has taken a fork");
-	pthread_mutex_lock(&philo->table->fork_locks[philo->forks[1]]);
+	pthread_mutex_lock(&philo->rules->fork_locks[philo->forks[1]]);
 	write_status(philo, 0, "has taken a fork");
 	write_status(philo, 0, "is eating");
 	pthread_mutex_lock(&philo->meal_lock);
 	philo->last_meal = get_timestamp_ms();
 	pthread_mutex_unlock(&philo->meal_lock);
-	philo_wait_time(philo->table, philo->table->time_to_eat);
-	if (is_simulation_over(philo->table) == FALSE)
+	philo_wait_time(philo->rules, philo->rules->time_to_eat);
+	if (is_simulation_over(philo->rules) == FALSE)
 	{
 		pthread_mutex_lock(&philo->meal_lock);
 		philo->times_ate += 1;
 		pthread_mutex_unlock(&philo->meal_lock);
 	}
 	write_status(philo, 0, "is sleeping");
-	pthread_mutex_unlock(&philo->table->fork_locks[philo->forks[0]]);
-	pthread_mutex_unlock(&philo->table->fork_locks[philo->forks[1]]);
-	philo_wait_time(philo->table, philo->table->time_to_sleep);
+	pthread_mutex_unlock(&philo->rules->fork_locks[philo->forks[0]]);
+	pthread_mutex_unlock(&philo->rules->fork_locks[philo->forks[1]]);
+	philo_wait_time(philo->rules, philo->rules->time_to_sleep);
 }
 
 /* 
@@ -55,9 +55,9 @@ void	think_routine(t_philo *philo, int hide)
 	time_t	time_think;
 
 	pthread_mutex_lock(&philo->meal_lock);
-	time_think = (philo->table->time_to_die
+	time_think = (philo->rules->time_to_die
 			- (get_timestamp_ms() - philo->last_meal)
-			- philo->table->time_to_eat) / 2;
+			- philo->rules->time_to_eat) / 2;
 	pthread_mutex_unlock(&philo->meal_lock);
 	if (time_think < 0)
 		time_think = 0;
@@ -67,5 +67,5 @@ void	think_routine(t_philo *philo, int hide)
 		time_think = 200;
 	if (hide == 0)
 		write_status(philo, 0, "is thinking");
-	philo_wait_time(philo->table, time_think);
+	philo_wait_time(philo->rules, time_think);
 }

@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 18:12:31 by victofer          #+#    #+#             */
-/*   Updated: 2023/03/30 11:53:36 by victofer         ###   ########.fr       */
+/*   Updated: 2023/04/10 10:44:58 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,32 +15,32 @@
 /* 
  * free_structs
  * ----------------------------
- *  Frees the struct table and its content.
+ *  Frees the struct rules and its content.
  * 
- *	table: struct with basic datas.
+ *	rules: struct with basic datas.
  */
-void	free_structs(t_table *table)
+void	free_structs(t_rules *rules)
 {
 	int	i;
 
-	if (table == NULL)
+	if (rules == NULL)
 		return ;
-	if (table->fork_locks != NULL)
-		free(table->fork_locks);
-	if (table->philos != NULL)
+	if (rules->fork_locks != NULL)
+		free(rules->fork_locks);
+	if (rules->philos != NULL)
 	{
 		i = 0;
-		while (i < table->nb_philo)
+		while (i < rules->nb_philo)
 		{
-			if (table->philos[i]->forks != NULL)
-				free(table->philos[i]->forks);
-			if (table->philos[i] != NULL)
-				free(table->philos[i]);
+			if (rules->philos[i]->forks != NULL)
+				free(rules->philos[i]->forks);
+			if (rules->philos[i] != NULL)
+				free(rules->philos[i]);
 			i++;
 		}
-		free(table->philos);
+		free(rules->philos);
 	}
-	free(table);
-	table = NULL;
+	free(rules);
+	rules = NULL;
 	return ;
 }

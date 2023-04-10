@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 18:49:04 by victofer          #+#    #+#             */
-/*   Updated: 2023/04/05 13:20:12 by victofer         ###   ########.fr       */
+/*   Updated: 2023/04/10 10:42:39 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@
 
 typedef struct s_philo	t_philo;
 
-typedef struct s_table
+typedef struct s_rules
 {
 	time_t			time_start;
 	int				nb_philo;
@@ -55,7 +55,7 @@ typedef struct s_table
 	pthread_mutex_t	write_lock;
 	pthread_mutex_t	*fork_locks;
 	t_philo			**philos;
-}	t_table;
+}	t_rules;
 
 typedef struct s_philo
 {
@@ -65,7 +65,7 @@ typedef struct s_philo
 	int				*forks;
 	pthread_mutex_t	meal_lock;
 	time_t			last_meal;
-	t_table			*table;
+	t_rules			*rules;
 }	t_philo;
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 18:43:43 by victofer          #+#    #+#             */
-/*   Updated: 2023/04/05 12:38:14 by victofer         ###   ########.fr       */
+/*   Updated: 2023/04/10 10:45:24 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,26 +20,26 @@
  * 
  *	tabe: struct with general datas.
  */
-int	start_philosophers(t_table	*table)
+int	start_philosophers(t_rules	*rules)
 {
 	int	i;
 
 	i = -1;
-	table->time_start = get_timestamp_ms() + (table->nb_philo * 2 * 10);
-	while (++i < table->nb_philo)
+	rules->time_start = get_timestamp_ms() + (rules->nb_philo * 2 * 10);
+	while (++i < rules->nb_philo)
 	{	
-		if (pthread_create(&table->philos[i]->thid, NULL, &general_routine
-				, table->philos[i]) != 0)
+		if (pthread_create(&rules->philos[i]->thid, NULL, &general_routine
+				, rules->philos[i]) != 0)
 		{
 			print_error_msg(THREAD_ERROR, "fail crating philo threads", 0);
 			return (0);
 		}
 	}
-	if (table->nb_philo > 1)
+	if (rules->nb_philo > 1)
 	{
-		if (pthread_create(&table->dead_checker, NULL, &dead, table) != 0)
+		if (pthread_create(&rules->dead_checker, NULL, &dead, rules) != 0)
 		{
-			print_error_msg(THREAD_ERROR, "fail creating dead_checker thread", 0);
+			print_error_msg(THREAD_ERROR, "fail dead_checker thread", 0);
 			return (0);
 		}
 	}
@@ -55,15 +55,15 @@ int	start_philosophers(t_table	*table)
  * 
  *	tabe: struct with general datas.
  */
-void	stop_philosophers(t_table	*table)
+void	stop_philosophers(t_rules	*rules)
 {
 	int	i;
 
 	i = -1;
-	while (++i < table->nb_philo)
-		pthread_join(table->philos[i]->thid, NULL);
-	if (table->nb_philo > 1)
-		pthread_join(table->dead_checker, NULL);
-	mutex_destroyer(table);
-	free_structs(table);
+	while (++i < rules->nb_philo)
+		pthread_join(rules->philos[i]->thid, NULL);
+	if (rules->nb_philo > 1)
+		pthread_join(rules->dead_checker, NULL);
+	mutex_destroyer(rules);
+	free_structs(rules);
 }
