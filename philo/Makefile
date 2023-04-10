@@ -6,7 +6,7 @@
 #    By: victofer <victofer@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/15 18:07:00 by victofer          #+#    #+#              #
-#    Updated: 2023/04/10 10:49:10 by victofer         ###   ########.fr        #
+#    Updated: 2023/04/10 10:52:05 by victofer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,6 @@ CFLAGS 	= 	-Wall -Wextra -Werror -pthread #-fsanitize=thread -g
 
 SRC 	= 	src/main.c \
 			src/ft_atoi.c \
-			src/leaks.c \
 			src/time.c \
 			errors_management/ft_errors.c \
 			input_checks/checks.c \
