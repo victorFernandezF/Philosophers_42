@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 10:02:06 by victofer          #+#    #+#             */
-/*   Updated: 2023/04/10 10:43:35 by victofer         ###   ########.fr       */
+/*   Updated: 2023/04/11 10:52:30 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ static int	end_of_simulation(t_rules *rules)
 	int	all_philo_ate;
 
 	i = 0;
-	all_philo_ate = 1;
 	while (i < rules->nb_philo)
 	{
 		pthread_mutex_lock(&rules->philos[i]->meal_lock);
@@ -52,7 +51,7 @@ static int	end_of_simulation(t_rules *rules)
 		pthread_mutex_unlock(&rules->philos[i]->meal_lock);
 		i++;
 	}
-	if (rules->times_x_eat != -1 && all_philo_ate == TRUE)
+	if (all_philo_ate == TRUE)
 	{
 		sim_stop_flag(rules, TRUE);
 		return (TRUE);
