@@ -6,6 +6,7 @@
 
 #### Summary
 > Eat, Sleep, Spaghetti, repeat. This project is about learning how threads work by precisely timing a group of philosophers on when to pick up forks and eat spaghetti without dying from hunger.
+
 |   Keywords   |           Skills          |
 |--------------|:-------------------------:|
 | Unix logic   |           Unix            |
@@ -29,6 +30,7 @@ git clone https://github.com/victorFernandezF/Philosophers_42.git
 
 #### Resumen 
 > Un grupo de filósofos filosofantes se reunen a cenar, pero al encargado de traer los tenedores no se le daban bien las matemáticas y ha traido menos de los necesarios para comer. Así que deben turnarse para comer, aprobechando el tiempo restante para dormir y pensar. ¿sobrevivirán todos? ¿Se morirán de hambre?
+
 |   Keywords   |           Skills          |
 |--------------|:-------------------------:|
 | Applicative  |   Imperative programming  |
